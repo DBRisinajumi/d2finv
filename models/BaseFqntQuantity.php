@@ -65,9 +65,9 @@ abstract class BaseFqntQuantity extends CActiveRecord
     public function attributeLabels()
     {
         return array(
-            'fqnt_id' => Yii::t('FqntQuantity.model', 'Fqnt'),
-            'fqnt_code' => Yii::t('FqntQuantity.model', 'Fqnt Code'),
-            'fqnt_name' => Yii::t('FqntQuantity.model', 'Fqnt Name'),
+            'fqnt_id' => Yii::t('D2finvModule.model', 'Fqnt'),
+            'fqnt_code' => Yii::t('D2finvModule.model', 'Fqnt Code'),
+            'fqnt_name' => Yii::t('D2finvModule.model', 'Fqnt Name'),
         );
     }
 

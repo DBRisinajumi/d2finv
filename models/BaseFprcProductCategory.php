@@ -64,9 +64,9 @@ abstract class BaseFprcProductCategory extends CActiveRecord
     public function attributeLabels()
     {
         return array(
-            'fprc_id' => Yii::t('FprcProductCategory.model', 'Fprc'),
-            'fprc_code' => Yii::t('FprcProductCategory.model', 'Fprc Code'),
-            'fprc_name' => Yii::t('FprcProductCategory.model', 'Fprc Name'),
+            'fprc_id' => Yii::t('D2finvModule.model', 'Fprc'),
+            'fprc_code' => Yii::t('D2finvModule.model', 'Fprc Code'),
+            'fprc_name' => Yii::t('D2finvModule.model', 'Fprc Name'),
         );
     }
 

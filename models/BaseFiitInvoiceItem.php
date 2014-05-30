@@ -84,19 +84,19 @@ abstract class BaseFiitInvoiceItem extends CActiveRecord
     public function attributeLabels()
     {
         return array(
-            'fiit_id' => Yii::t('FiitInvoiceItem.model', 'Fiit'),
-            'fiit_finv_id' => Yii::t('FiitInvoiceItem.model', 'Fiit Finv'),
-            'fiit_desc' => Yii::t('FiitInvoiceItem.model', 'Fiit Desc'),
-            'fiit_debet_facn_code' => Yii::t('FiitInvoiceItem.model', 'Fiit Debet Facn Code'),
-            'fiit_credit_facn_code' => Yii::t('FiitInvoiceItem.model', 'Fiit Credit Facn Code'),
-            'fiit_fprc_id' => Yii::t('FiitInvoiceItem.model', 'Fiit Fprc'),
-            'fiit_quantity' => Yii::t('FiitInvoiceItem.model', 'Fiit Quantity'),
-            'fiit_fqnt_id' => Yii::t('FiitInvoiceItem.model', 'Fiit Fqnt'),
-            'fiit_price' => Yii::t('FiitInvoiceItem.model', 'Fiit Price'),
-            'fiit_amt' => Yii::t('FiitInvoiceItem.model', 'Fiit Amt'),
-            'fiit_vat' => Yii::t('FiitInvoiceItem.model', 'Fiit Vat'),
-            'fiit_total' => Yii::t('FiitInvoiceItem.model', 'Fiit Total'),
-            'fiit_fvat_id' => Yii::t('FiitInvoiceItem.model', 'Fiit Fvat'),
+            'fiit_id' => Yii::t('D2finvModule.model', 'Fiit'),
+            'fiit_finv_id' => Yii::t('D2finvModule.model', 'Fiit Finv'),
+            'fiit_desc' => Yii::t('D2finvModule.model', 'Fiit Desc'),
+            'fiit_debet_facn_code' => Yii::t('D2finvModule.model', 'Fiit Debet Facn Code'),
+            'fiit_credit_facn_code' => Yii::t('D2finvModule.model', 'Fiit Credit Facn Code'),
+            'fiit_fprc_id' => Yii::t('D2finvModule.model', 'Fiit Fprc'),
+            'fiit_quantity' => Yii::t('D2finvModule.model', 'Fiit Quantity'),
+            'fiit_fqnt_id' => Yii::t('D2finvModule.model', 'Fiit Fqnt'),
+            'fiit_price' => Yii::t('D2finvModule.model', 'Fiit Price'),
+            'fiit_amt' => Yii::t('D2finvModule.model', 'Fiit Amt'),
+            'fiit_vat' => Yii::t('D2finvModule.model', 'Fiit Vat'),
+            'fiit_total' => Yii::t('D2finvModule.model', 'Fiit Total'),
+            'fiit_fvat_id' => Yii::t('D2finvModule.model', 'Fiit Fvat'),
         );
     }
 

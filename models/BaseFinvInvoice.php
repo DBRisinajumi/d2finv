@@ -110,30 +110,30 @@ abstract class BaseFinvInvoice extends CActiveRecord
     public function attributeLabels()
     {
         return array(
-            'finv_id' => Yii::t('FinvInvoice.model', 'Finv'),
-            'finv_series_number' => Yii::t('FinvInvoice.model', 'Finv Series Number'),
-            'finv_number' => Yii::t('FinvInvoice.model', 'Finv Number'),
-            'finv_issuer_ccmp_id' => Yii::t('FinvInvoice.model', 'Finv Issuer Ccmp'),
-            'finv_payer_ccmp_id' => Yii::t('FinvInvoice.model', 'Finv Payer Ccmp'),
-            'finv_reg_date' => Yii::t('FinvInvoice.model', 'Finv Reg Date'),
-            'finv_date' => Yii::t('FinvInvoice.model', 'Finv Date'),
-            'finv_budget_date' => Yii::t('FinvInvoice.model', 'Finv Budget Date'),
-            'finv_due_date' => Yii::t('FinvInvoice.model', 'Finv Due Date'),
-            'finv_notes' => Yii::t('FinvInvoice.model', 'Finv Notes'),
-            'finv_fcrn_id' => Yii::t('FinvInvoice.model', 'Finv Fcrn'),
-            'finv_amt' => Yii::t('FinvInvoice.model', 'Finv Amt'),
-            'finv_vat' => Yii::t('FinvInvoice.model', 'Finv Vat'),
-            'finv_total' => Yii::t('FinvInvoice.model', 'Finv Total'),
-            'finv_basic_fcrn_id' => Yii::t('FinvInvoice.model', 'Finv Basic Fcrn'),
-            'finv_basic_amt' => Yii::t('FinvInvoice.model', 'Finv Basic Amt'),
-            'finv_basic_vat' => Yii::t('FinvInvoice.model', 'Finv Basic Vat'),
-            'finv_basic_total' => Yii::t('FinvInvoice.model', 'Finv Basic Total'),
-            'finv_basic_payment_before' => Yii::t('FinvInvoice.model', 'Finv Basic Payment Before'),
-            'finv_stst_id' => Yii::t('FinvInvoice.model', 'Finv Stst'),
-            'finv_paid' => Yii::t('FinvInvoice.model', 'Finv Paid'),
-            'finv_ref' => Yii::t('FinvInvoice.model', 'Finv Ref'),
-            'finv_ref_id' => Yii::t('FinvInvoice.model', 'Finv Ref'),
-            'finv_type' => Yii::t('FinvInvoice.model', 'Finv Type'),
+            'finv_id' => Yii::t('D2finvModule.model', 'Finv'),
+            'finv_series_number' => Yii::t('D2finvModule.model', 'Finv Series Number'),
+            'finv_number' => Yii::t('D2finvModule.model', 'Finv Number'),
+            'finv_issuer_ccmp_id' => Yii::t('D2finvModule.model', 'Finv Issuer Ccmp'),
+            'finv_payer_ccmp_id' => Yii::t('D2finvModule.model', 'Finv Payer Ccmp'),
+            'finv_reg_date' => Yii::t('D2finvModule.model', 'Finv Reg Date'),
+            'finv_date' => Yii::t('D2finvModule.model', 'Finv Date'),
+            'finv_budget_date' => Yii::t('D2finvModule.model', 'Finv Budget Date'),
+            'finv_due_date' => Yii::t('D2finvModule.model', 'Finv Due Date'),
+            'finv_notes' => Yii::t('D2finvModule.model', 'Finv Notes'),
+            'finv_fcrn_id' => Yii::t('D2finvModule.model', 'Finv Fcrn'),
+            'finv_amt' => Yii::t('D2finvModule.model', 'Finv Amt'),
+            'finv_vat' => Yii::t('D2finvModule.model', 'Finv Vat'),
+            'finv_total' => Yii::t('D2finvModule.model', 'Finv Total'),
+            'finv_basic_fcrn_id' => Yii::t('D2finvModule.model', 'Finv Basic Fcrn'),
+            'finv_basic_amt' => Yii::t('D2finvModule.model', 'Finv Basic Amt'),
+            'finv_basic_vat' => Yii::t('D2finvModule.model', 'Finv Basic Vat'),
+            'finv_basic_total' => Yii::t('D2finvModule.model', 'Finv Basic Total'),
+            'finv_basic_payment_before' => Yii::t('D2finvModule.model', 'Finv Basic Payment Before'),
+            'finv_stst_id' => Yii::t('D2finvModule.model', 'Finv Stst'),
+            'finv_paid' => Yii::t('D2finvModule.model', 'Finv Paid'),
+            'finv_ref' => Yii::t('D2finvModule.model', 'Finv Ref'),
+            'finv_ref_id' => Yii::t('D2finvModule.model', 'Finv Ref'),
+            'finv_type' => Yii::t('D2finvModule.model', 'Finv Type'),
         );
     }
 
@@ -141,16 +141,16 @@ abstract class BaseFinvInvoice extends CActiveRecord
     {
         return array(
            'finv_paid' => array(
-               self::FINV_PAID_IS_PAID => Yii::t('FinvInvoice.model', 'FINV_PAID_IS_PAID'),
-               self::FINV_PAID_NOT_PAID => Yii::t('FinvInvoice.model', 'FINV_PAID_NOT_PAID'),
-               self::FINV_PAID_PARTLY_PAID => Yii::t('FinvInvoice.model', 'FINV_PAID_PARTLY_PAID'),
+               self::FINV_PAID_IS_PAID => Yii::t('D2finvModule.model', 'FINV_PAID_IS_PAID'),
+               self::FINV_PAID_NOT_PAID => Yii::t('D2finvModule.model', 'FINV_PAID_NOT_PAID'),
+               self::FINV_PAID_PARTLY_PAID => Yii::t('D2finvModule.model', 'FINV_PAID_PARTLY_PAID'),
            ),
            'finv_ref' => array(
-               self::FINV_REF_BPRD => Yii::t('FinvInvoice.model', 'FINV_REF_BPRD'),
+               self::FINV_REF_BPRD => Yii::t('D2finvModule.model', 'FINV_REF_BPRD'),
            ),
            'finv_type' => array(
-               self::FINV_TYPE_IN => Yii::t('FinvInvoice.model', 'FINV_TYPE_IN'),
-               self::FINV_TYPE_OUT => Yii::t('FinvInvoice.model', 'FINV_TYPE_OUT'),
+               self::FINV_TYPE_IN => Yii::t('D2finvModule.model', 'FINV_TYPE_IN'),
+               self::FINV_TYPE_OUT => Yii::t('D2finvModule.model', 'FINV_TYPE_OUT'),
            ),
             );
     }

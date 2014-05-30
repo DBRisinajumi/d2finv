@@ -67,11 +67,11 @@ abstract class BaseFvatVat extends CActiveRecord
     public function attributeLabels()
     {
         return array(
-            'fvat_id' => Yii::t('FvatVat.model', 'Fvat'),
-            'fvat_rate' => Yii::t('FvatVat.model', 'Fvat Rate'),
-            'fvat_label' => Yii::t('FvatVat.model', 'Fvat Label'),
-            'fvat_order' => Yii::t('FvatVat.model', 'Fvat Order'),
-            'fvat_hide' => Yii::t('FvatVat.model', 'Fvat Hide'),
+            'fvat_id' => Yii::t('D2finvModule.model', 'Fvat'),
+            'fvat_rate' => Yii::t('D2finvModule.model', 'Fvat Rate'),
+            'fvat_label' => Yii::t('D2finvModule.model', 'Fvat Label'),
+            'fvat_order' => Yii::t('D2finvModule.model', 'Fvat Order'),
+            'fvat_hide' => Yii::t('D2finvModule.model', 'Fvat Hide'),
         );
     }
 
