@@ -7,8 +7,8 @@
  * @property integer $finv_id
  * @property string $finv_series_number
  * @property string $finv_number
- * @property string $finv_issuer_ccmp_id
- * @property string $finv_payer_ccmp_id
+ * @property string $finv_sys_ccmp_id
+ * @property string $finv_ccmp_id
  * @property string $finv_reg_date
  * @property string $finv_date
  * @property string $finv_budget_date
@@ -31,8 +31,8 @@
  *
  * Relations of table "finv_invoice" available as properties of the model:
  * @property FiitInvoiceItem[] $fiitInvoiceItems
- * @property CcmpCompany $finvIssuerCcmp
- * @property CcmpCompany $finvPayerCcmp
+ * @property CcmpCompany $finvSysCcmp
+ * @property CcmpCompany $finvCcmp
  * @property FcrnCurrency $finvFcrn
  * @property FcrnCurrency $finvBasicFcrn
  * @property StstState $finvStst
@@ -63,16 +63,16 @@ abstract class BaseFinvInvoice extends CActiveRecord
     {
         return array_merge(
             parent::rules(), array(
-                array('finv_number, finv_issuer_ccmp_id, finv_payer_ccmp_id, finv_reg_date, finv_fcrn_id, finv_basic_fcrn_id', 'required'),
+                array('finv_number, finv_sys_ccmp_id, finv_ccmp_id, finv_reg_date, finv_fcrn_id, finv_basic_fcrn_id', 'required'),
                 array('finv_series_number, finv_date, finv_budget_date, finv_due_date, finv_notes, finv_amt, finv_vat, finv_total, finv_basic_amt, finv_basic_vat, finv_basic_total, finv_basic_payment_before, finv_stst_id, finv_paid, finv_ref, finv_ref_id, finv_type', 'default', 'setOnEmpty' => true, 'value' => null),
                 array('finv_fcrn_id, finv_basic_fcrn_id, finv_stst_id', 'numerical', 'integerOnly' => true),
-                array('finv_series_number, finv_issuer_ccmp_id, finv_payer_ccmp_id, finv_amt, finv_vat, finv_total, finv_basic_amt, finv_basic_vat, finv_basic_total, finv_basic_payment_before, finv_ref_id', 'length', 'max' => 10),
+                array('finv_series_number, finv_sys_ccmp_id, finv_ccmp_id, finv_amt, finv_vat, finv_total, finv_basic_amt, finv_basic_vat, finv_basic_total, finv_basic_payment_before, finv_ref_id', 'length', 'max' => 10),
                 array('finv_number', 'length', 'max' => 20),
                 array('finv_paid', 'length', 'max' => 11),
                 array('finv_ref', 'length', 'max' => 4),
                 array('finv_type', 'length', 'max' => 3),
                 array('finv_date, finv_budget_date, finv_due_date, finv_notes', 'safe'),
-                array('finv_id, finv_series_number, finv_number, finv_issuer_ccmp_id, finv_payer_ccmp_id, finv_reg_date, finv_date, finv_budget_date, finv_due_date, finv_notes, finv_fcrn_id, finv_amt, finv_vat, finv_total, finv_basic_fcrn_id, finv_basic_amt, finv_basic_vat, finv_basic_total, finv_basic_payment_before, finv_stst_id, finv_paid, finv_ref, finv_ref_id, finv_type', 'safe', 'on' => 'search'),
+                array('finv_id, finv_series_number, finv_number, finv_sys_ccmp_id, finv_ccmp_id, finv_reg_date, finv_date, finv_budget_date, finv_due_date, finv_notes, finv_fcrn_id, finv_amt, finv_vat, finv_total, finv_basic_fcrn_id, finv_basic_amt, finv_basic_vat, finv_basic_total, finv_basic_payment_before, finv_stst_id, finv_paid, finv_ref, finv_ref_id, finv_type', 'safe', 'on' => 'search'),
             )
         );
     }
@@ -98,8 +98,8 @@ abstract class BaseFinvInvoice extends CActiveRecord
         return array_merge(
             parent::relations(), array(
                 'fiitInvoiceItems' => array(self::HAS_MANY, 'FiitInvoiceItem', 'fiit_finv_id'),
-                'finvIssuerCcmp' => array(self::BELONGS_TO, 'CcmpCompany', 'finv_issuer_ccmp_id'),
-                'finvPayerCcmp' => array(self::BELONGS_TO, 'CcmpCompany', 'finv_payer_ccmp_id'),
+                'finvSysCcmp' => array(self::BELONGS_TO, 'CcmpCompany', 'finv_sys_ccmp_id'),
+                'finvCcmp' => array(self::BELONGS_TO, 'CcmpCompany', 'finv_ccmp_id'),
                 'finvFcrn' => array(self::BELONGS_TO, 'FcrnCurrency', 'finv_fcrn_id'),
                 'finvBasicFcrn' => array(self::BELONGS_TO, 'FcrnCurrency', 'finv_basic_fcrn_id'),
                 'finvStst' => array(self::BELONGS_TO, 'StstState', 'finv_stst_id'),
@@ -113,8 +113,8 @@ abstract class BaseFinvInvoice extends CActiveRecord
             'finv_id' => Yii::t('D2finvModule.model', 'Finv'),
             'finv_series_number' => Yii::t('D2finvModule.model', 'Finv Series Number'),
             'finv_number' => Yii::t('D2finvModule.model', 'Finv Number'),
-            'finv_issuer_ccmp_id' => Yii::t('D2finvModule.model', 'Finv Issuer Ccmp'),
-            'finv_payer_ccmp_id' => Yii::t('D2finvModule.model', 'Finv Payer Ccmp'),
+            'finv_sys_ccmp_id' => Yii::t('D2finvModule.model', 'Finv Sys Ccmp'),
+            'finv_ccmp_id' => Yii::t('D2finvModule.model', 'Finv Ccmp'),
             'finv_reg_date' => Yii::t('D2finvModule.model', 'Finv Reg Date'),
             'finv_date' => Yii::t('D2finvModule.model', 'Finv Date'),
             'finv_budget_date' => Yii::t('D2finvModule.model', 'Finv Budget Date'),
@@ -186,8 +186,8 @@ abstract class BaseFinvInvoice extends CActiveRecord
         $criteria->compare('t.finv_id', $this->finv_id);
         $criteria->compare('t.finv_series_number', $this->finv_series_number, true);
         $criteria->compare('t.finv_number', $this->finv_number, true);
-        $criteria->compare('t.finv_issuer_ccmp_id', $this->finv_issuer_ccmp_id);
-        $criteria->compare('t.finv_payer_ccmp_id', $this->finv_payer_ccmp_id);
+        $criteria->compare('t.finv_sys_ccmp_id', $this->finv_sys_ccmp_id);
+        $criteria->compare('t.finv_ccmp_id', $this->finv_ccmp_id);
         $criteria->compare('t.finv_reg_date', $this->finv_reg_date, true);
         $criteria->compare('t.finv_date', $this->finv_date, true);
         $criteria->compare('t.finv_budget_date', $this->finv_budget_date, true);
