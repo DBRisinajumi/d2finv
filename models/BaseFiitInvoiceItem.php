@@ -41,8 +41,8 @@ abstract class BaseFiitInvoiceItem extends CActiveRecord
     {
         return array_merge(
             parent::rules(), array(
-                array('fiit_finv_id, fiit_quantity', 'required'),
-                array('fiit_desc, fiit_debet_facn_code, fiit_credit_facn_code, fiit_fprc_id, fiit_fqnt_id, fiit_price, fiit_amt, fiit_vat, fiit_total, fiit_fvat_id', 'default', 'setOnEmpty' => true, 'value' => null),
+                array('fiit_finv_id', 'required'),
+                array('fiit_desc, fiit_debet_facn_code, fiit_credit_facn_code, fiit_fprc_id, fiit_quantity, fiit_fqnt_id, fiit_price, fiit_amt, fiit_vat, fiit_total, fiit_fvat_id', 'default', 'setOnEmpty' => true, 'value' => null),
                 array('fiit_finv_id, fiit_fprc_id, fiit_fqnt_id, fiit_fvat_id', 'numerical', 'integerOnly' => true),
                 array('fiit_quantity', 'numerical'),
                 array('fiit_debet_facn_code, fiit_credit_facn_code', 'length', 'max' => 20),
