@@ -51,5 +51,20 @@ class FinvInvoice extends BaseFinvInvoice
             'criteria' => $this->searchCriteria($criteria),
         ));
     }
+    
+    public function save($runValidation = true, $attributes = NULL) 
+    {
+        
+        // set system company id
+        if ($this->isNewRecord && Yii::app()->sysCompany->getActiveCompany()) {
+            $this->finv_sys_ccmp_id   = Yii::app()->sysCompany->getActiveCompany();
+            $this->finv_fcrn_id       = Yii::app()->sysCompany->getAttribute('base_fcrn_id');
+            $this->finv_basic_fcrn_id = Yii::app()->sysCompany->getAttribute('base_fcrn_id');
+            $this->finv_reg_date      = date('Y-m-d H:i:s');
+        }
+        
+        return parent::save($runValidation, $attributes);
+
+    }
 
 }
