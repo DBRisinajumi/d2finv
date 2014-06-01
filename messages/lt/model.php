@@ -25,7 +25,7 @@ return array (
   'FINV_PAID_IS_PAID' => 'Apmokėtas',
   'FINV_PAID_NOT_PAID' => 'Neapmokėjo',
   'FINV_PAID_PARTLY_PAID' => 'Dalinis apmokėjimas',
-  'FINV_REF_BPRD' => '',
+  'FINV_REF_BPRD' => 'BPRD',
   'FINV_TYPE_IN' => '',
   'FINV_TYPE_OUT' => '',
   'Fiit' => '',

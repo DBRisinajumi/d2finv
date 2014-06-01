@@ -25,7 +25,7 @@ return array (
   'FINV_PAID_IS_PAID' => 'Оплаченный',
   'FINV_PAID_NOT_PAID' => 'Не заплатил',
   'FINV_PAID_PARTLY_PAID' => 'Частичная оплата',
-  'FINV_REF_BPRD' => '',
+  'FINV_REF_BPRD' => 'BPRD',
   'FINV_TYPE_IN' => 'Входящий',
   'FINV_TYPE_OUT' => 'Исходящий',
   'Fiit' => '',
