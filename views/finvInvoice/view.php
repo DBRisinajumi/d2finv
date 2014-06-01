@@ -111,7 +111,7 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
                 ),
 
                 array(
-                    'name' => 'finv_issuer_ccmp_id',
+                    'name' => 'finv_sys_ccmp_id',
                     'type' => 'raw',    
                     'value' => $this->widget(
                         'EditableField', 
@@ -120,7 +120,7 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
                             'type' => 'select',
                             'url' => $this->createUrl('/d2finv/finvInvoice/editableSaver'),
                             'source' => CHtml::listData(CcmpCompany::model()->findAll(array('limit' => 1000)), 'ccmp_id', 'itemLabel'),                        
-                            'attribute' => 'finv_issuer_ccmp_id',
+                            'attribute' => 'finv_sys_ccmp_id',
                             //'placement' => 'right',                                
                         ), 
                         true
@@ -128,7 +128,7 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
                 ),
 
                 array(
-                    'name' => 'finv_payer_ccmp_id',
+                    'name' => 'finv_ccmp_id',
                     'type' => 'raw',    
                     'value' => $this->widget(
                         'EditableField', 
@@ -137,7 +137,7 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
                             'type' => 'select',
                             'url' => $this->createUrl('/d2finv/finvInvoice/editableSaver'),
                             'source' => CHtml::listData(CcmpCompany::model()->findAll(array('limit' => 1000)), 'ccmp_id', 'itemLabel'),                        
-                            'attribute' => 'finv_payer_ccmp_id',
+                            'attribute' => 'finv_ccmp_id',
                             //'placement' => 'right',                                
                         ), 
                         true

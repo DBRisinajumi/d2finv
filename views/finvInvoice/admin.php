@@ -83,7 +83,7 @@ $this->widget('TbGridView',
             ),
             array(
                 'class' => 'editable.EditableColumn',
-                'name' => 'finv_issuer_ccmp_id',
+                'name' => 'finv_sys_ccmp_id',
                 'editable' => array(
                     'type' => 'select',
                     'url' => $this->createUrl('/d2finv/finvInvoice/editableSaver'),
@@ -93,7 +93,7 @@ $this->widget('TbGridView',
             ),
             array(
                 'class' => 'editable.EditableColumn',
-                'name' => 'finv_payer_ccmp_id',
+                'name' => 'finv_ccmp_id',
                 'editable' => array(
                     'type' => 'select',
                     'url' => $this->createUrl('/d2finv/finvInvoice/editableSaver'),

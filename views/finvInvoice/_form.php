@@ -73,17 +73,17 @@
                     <?php  ?>
                     <div class="control-group">
                         <div class='control-label'>
-                            <?php echo $form->labelEx($model, 'finv_issuer_ccmp_id') ?>
+                            <?php echo $form->labelEx($model, 'finv_sys_ccmp_id') ?>
                         </div>
                         <div class='controls'>
                             <span class="tooltip-wrapper" data-toggle='tooltip' data-placement="right"
-                                 title='<?php echo (($t = Yii::t('D2finvModule.model', 'tooltip.finv_issuer_ccmp_id')) != 'tooltip.finv_issuer_ccmp_id')?$t:'' ?>'>
+                                 title='<?php echo (($t = Yii::t('D2finvModule.model', 'tooltip.finv_sys_ccmp_id')) != 'tooltip.finv_sys_ccmp_id')?$t:'' ?>'>
                                 <?php
                             $this->widget(
                 '\GtcRelation',
                 array(
                     'model' => $model,
-                    'relation' => 'finvIssuerCcmp',
+                    'relation' => 'finvSysCcmp',
                     'fields' => 'itemLabel',
                     'allowEmpty' => true,
                     'style' => 'dropdownlist',
@@ -92,7 +92,7 @@
                     ),
                 )
                 );
-                            echo $form->error($model,'finv_issuer_ccmp_id')
+                            echo $form->error($model,'finv_sys_ccmp_id')
                             ?>                            </span>
                         </div>
                     </div>
@@ -101,17 +101,17 @@
                     <?php  ?>
                     <div class="control-group">
                         <div class='control-label'>
-                            <?php echo $form->labelEx($model, 'finv_payer_ccmp_id') ?>
+                            <?php echo $form->labelEx($model, 'finv_ccmp_id') ?>
                         </div>
                         <div class='controls'>
                             <span class="tooltip-wrapper" data-toggle='tooltip' data-placement="right"
-                                 title='<?php echo (($t = Yii::t('D2finvModule.model', 'tooltip.finv_payer_ccmp_id')) != 'tooltip.finv_payer_ccmp_id')?$t:'' ?>'>
+                                 title='<?php echo (($t = Yii::t('D2finvModule.model', 'tooltip.finv_ccmp_id')) != 'tooltip.finv_ccmp_id')?$t:'' ?>'>
                                 <?php
                             $this->widget(
                 '\GtcRelation',
                 array(
                     'model' => $model,
-                    'relation' => 'finvPayerCcmp',
+                    'relation' => 'finvCcmp',
                     'fields' => 'itemLabel',
                     'allowEmpty' => true,
                     'style' => 'dropdownlist',
@@ -120,7 +120,7 @@
                     ),
                 )
                 );
-                            echo $form->error($model,'finv_payer_ccmp_id')
+                            echo $form->error($model,'finv_ccmp_id')
                             ?>                            </span>
                         </div>
                     </div>
