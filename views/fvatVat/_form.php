@@ -47,7 +47,7 @@
                             <span class="tooltip-wrapper" data-toggle='tooltip' data-placement="right"
                                  title='<?php echo (($t = Yii::t('D2finvModule.model', 'tooltip.fvat_rate')) != 'tooltip.fvat_rate')?$t:'' ?>'>
                                 <?php
-                            echo $form->textField($model, 'fvat_rate');
+                            echo $form->textField($model, 'fvat_rate', array('size' => 4, 'maxlength' => 4));
                             echo $form->error($model,'fvat_rate')
                             ?>                            </span>
                         </div>
@@ -95,7 +95,7 @@
                             <span class="tooltip-wrapper" data-toggle='tooltip' data-placement="right"
                                  title='<?php echo (($t = Yii::t('D2finvModule.model', 'tooltip.fvat_hide')) != 'tooltip.fvat_hide')?$t:'' ?>'>
                                 <?php
-                            echo $form->textField($model, 'fvat_hide');
+                            echo CHtml::activeDropDownList($model, 'fvat_hide', $model->getEnumFieldLabels('fvat_hide'));
                             echo $form->error($model,'fvat_hide')
                             ?>                            </span>
                         </div>

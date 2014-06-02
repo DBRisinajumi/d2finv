@@ -126,16 +126,19 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
 
                 array(
                     'name' => 'fvat_hide',
-                    'type' => 'raw',
+                    'type' => 'raw',    
                     'value' => $this->widget(
-                        'EditableField',
+                        'EditableField', 
                         array(
                             'model' => $model,
-                            'attribute' => 'fvat_hide',
+                            'type' => 'select',
                             'url' => $this->createUrl('/d2finv/fvatVat/editableSaver'),
-                        ),
+                            'source' => $model->getEnumFieldLabels('fvat_hide'),
+                            'attribute' => 'fvat_hide',
+                            //'placement' => 'right',                                
+                        ), 
                         true
-                    )
+                    )                   
                 ),
            ),
         )); ?>

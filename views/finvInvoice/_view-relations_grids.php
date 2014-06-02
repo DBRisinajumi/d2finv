@@ -102,7 +102,7 @@ if(!$ajax || $ajax == 'fiit-invoice-item-grid'){
                 )
             ),
             array(
-                //double
+                //decimal(10,4)
                 'class' => 'editable.EditableColumn',
                 'name' => 'fiit_quantity',
                 'editable' => array(

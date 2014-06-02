@@ -55,7 +55,7 @@ $this->widget('TbGridView',
                 'urlExpression' => 'Yii::app()->controller->createUrl("view", array("fvat_id" => $data["fvat_id"]))'
             ),
             array(
-                //tinyint(11) unsigned
+                //tinyint(3) unsigned
                 'class' => 'editable.EditableColumn',
                 'name' => 'fvat_id',
                 'editable' => array(
@@ -64,7 +64,7 @@ $this->widget('TbGridView',
                 )
             ),
             array(
-                //double unsigned
+                //decimal(4,2)
                 'class' => 'editable.EditableColumn',
                 'name' => 'fvat_rate',
                 'editable' => array(
@@ -82,7 +82,7 @@ $this->widget('TbGridView',
                 )
             ),
             array(
-                //tinyint(11) unsigned
+                //tinyint(3) unsigned
                 'class' => 'editable.EditableColumn',
                 'name' => 'fvat_order',
                 'editable' => array(
@@ -91,14 +91,16 @@ $this->widget('TbGridView',
                 )
             ),
             array(
-                //tinyint(4)
-                'class' => 'editable.EditableColumn',
-                'name' => 'fvat_hide',
-                'editable' => array(
-                    'url' => $this->createUrl('/d2finv/fvatVat/editableSaver'),
-                    //'placement' => 'right',
-                )
-            ),
+                    'class' => 'editable.EditableColumn',
+                    'name' => 'fvat_hide',
+                    'editable' => array(
+                        'type' => 'select',
+                        'url' => $this->createUrl('/d2finv/fvatVat/editableSaver'),
+                        'source' => $model->getEnumFieldLabels('fvat_hide'),
+                        //'placement' => 'right',
+                    ),
+                   'filter' => $model->getEnumFieldLabels('fvat_hide'),
+                ),
 
             array(
                 'class' => 'TbButtonColumn',

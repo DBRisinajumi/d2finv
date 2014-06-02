@@ -4,7 +4,7 @@
  * This is the model base class for the table "finv_invoice".
  *
  * Columns in table "finv_invoice" available as properties of the model:
- * @property integer $finv_id
+ * @property string $finv_id
  * @property string $finv_series_number
  * @property string $finv_number
  * @property string $finv_sys_ccmp_id
@@ -183,7 +183,7 @@ abstract class BaseFinvInvoice extends CActiveRecord
             $criteria = new CDbCriteria;
         }
 
-        $criteria->compare('t.finv_id', $this->finv_id);
+        $criteria->compare('t.finv_id', $this->finv_id, true);
         $criteria->compare('t.finv_series_number', $this->finv_series_number, true);
         $criteria->compare('t.finv_number', $this->finv_number, true);
         $criteria->compare('t.finv_sys_ccmp_id', $this->finv_sys_ccmp_id);

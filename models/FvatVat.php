@@ -20,7 +20,7 @@ class FvatVat extends BaseFvatVat
 
     public function getItemLabel()
     {
-        return parent::getItemLabel();
+        return (string) $this->fvat_label;
     }
 
     public function behaviors()

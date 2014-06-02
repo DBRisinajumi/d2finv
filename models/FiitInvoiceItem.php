@@ -20,7 +20,7 @@ class FiitInvoiceItem extends BaseFiitInvoiceItem
 
     public function getItemLabel()
     {
-        return parent::getItemLabel();
+        return (string) $this->fiit_desc;
     }
 
     public function behaviors()

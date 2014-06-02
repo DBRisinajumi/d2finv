@@ -111,7 +111,7 @@ $this->widget('TbGridView',
                 )
             ),
             array(
-                //double
+                //decimal(10,4)
                 'class' => 'editable.EditableColumn',
                 'name' => 'fiit_quantity',
                 'editable' => array(

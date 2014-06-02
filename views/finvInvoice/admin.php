@@ -55,7 +55,7 @@ $this->widget('TbGridView',
                 'urlExpression' => 'Yii::app()->controller->createUrl("view", array("finv_id" => $data["finv_id"]))'
             ),
             array(
-                //smallint(10) unsigned
+                //int(10) unsigned
                 'class' => 'editable.EditableColumn',
                 'name' => 'finv_id',
                 'editable' => array(

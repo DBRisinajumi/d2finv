@@ -151,7 +151,7 @@
                             <span class="tooltip-wrapper" data-toggle='tooltip' data-placement="right"
                                  title='<?php echo (($t = Yii::t('D2finvModule.model', 'tooltip.fiit_quantity')) != 'tooltip.fiit_quantity')?$t:'' ?>'>
                                 <?php
-                            echo $form->textField($model, 'fiit_quantity');
+                            echo $form->textField($model, 'fiit_quantity', array('size' => 10, 'maxlength' => 10));
                             echo $form->error($model,'fiit_quantity')
                             ?>                            </span>
                         </div>

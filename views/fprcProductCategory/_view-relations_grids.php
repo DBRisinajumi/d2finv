@@ -1,7 +1,7 @@
 <?php
 if(!$ajax){
     Yii::app()->clientScript->registerCss('rel_grid',' 
-            .grid-view {padding-top:0px;margin-top: -35px;}
+            .rel-grid-view {padding-top:0px;margin-top: -35px;}
             h3.rel_grid{padding-left: 40px;}
             ');     
 }
@@ -60,6 +60,9 @@ if(!$ajax || $ajax == 'fiit-invoice-item-grid'){
             'dataProvider' => $model->search(),
             'template' => '{summary}{items}',
             'summaryText' => '&nbsp;',
+            'htmlOptions' => array(
+                'class' => 'rel-grid-view'
+            ),            
             'columns' => array(
                 array(
                 'class' => 'editable.EditableColumn',
@@ -99,7 +102,7 @@ if(!$ajax || $ajax == 'fiit-invoice-item-grid'){
                 )
             ),
             array(
-                //double
+                //decimal(10,4)
                 'class' => 'editable.EditableColumn',
                 'name' => 'fiit_quantity',
                 'editable' => array(
