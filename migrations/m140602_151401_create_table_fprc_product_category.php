@@ -1,6 +1,6 @@
 <?php
 
-class m140601_183601_alter_table_fiit_invoice_item extends CDbMigration
+class m140602_151401_create_table_fprc_product_category extends CDbMigration
 {
 
 	/**
@@ -9,7 +9,12 @@ class m140601_183601_alter_table_fiit_invoice_item extends CDbMigration
 	public function up()
 	{
 		$this->execute("
-            ALTER TABLE `fiit_invoice_item` CHANGE `fiit_quantity` `fiit_quantity` DOUBLE NULL;
+            CREATE TABLE IF NOT EXISTS `fprc_product_category` (
+              `fprc_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+              `fprc_code` char(10) NOT NULL,
+              `fprc_name` varchar(100) NOT NULL,
+              PRIMARY KEY (`fprc_id`)
+            ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
         ");
 	}
 
@@ -18,9 +23,7 @@ class m140601_183601_alter_table_fiit_invoice_item extends CDbMigration
 	 */
 	public function down()
 	{
-		$this->execute("
-            ALTER TABLE `fiit_invoice_item` CHANGE `fiit_quantity` `fiit_quantity` DOUBLE NOT NULL;
-        ");
+		$this->dropTable('fprc_product_category');
 	}
 
 	/**

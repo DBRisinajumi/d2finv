@@ -1,6 +1,6 @@
 <?php
 
-class m140528_153401_create_table_fprc_product_category extends CDbMigration
+class m140602_151401_create_table_fqnt_quantity extends CDbMigration
 {
 
 	/**
@@ -9,11 +9,12 @@ class m140528_153401_create_table_fprc_product_category extends CDbMigration
 	public function up()
 	{
 		$this->execute("
-            CREATE TABLE IF NOT EXISTS `fprc_product_category` (
-              `fprc_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
-              `fprc_code` char(10) NOT NULL,
-              `fprc_name` varchar(100) NOT NULL,
-              PRIMARY KEY (`fprc_id`)
+            CREATE TABLE IF NOT EXISTS `fqnt_quantity` (
+              `fqnt_id` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
+              `fqnt_code` varchar(10) DEFAULT NULL,
+              `fqnt_name` varchar(50) NOT NULL,
+              PRIMARY KEY (`fqnt_id`),
+              UNIQUE KEY `cqnt_name` (`fqnt_name`)
             ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
         ");
 	}
@@ -23,7 +24,7 @@ class m140528_153401_create_table_fprc_product_category extends CDbMigration
 	 */
 	public function down()
 	{
-		$this->dropTable('fprc_product_category');
+		$this->dropTable('fqnt_quantity');
 	}
 
 	/**

@@ -1,6 +1,6 @@
 <?php
 
-class m140528_153401_create_table_fvat_vat extends CDbMigration
+class m140602_151401_create_table_fvat_vat extends CDbMigration
 {
 
 	/**
@@ -10,11 +10,11 @@ class m140528_153401_create_table_fvat_vat extends CDbMigration
 	{
 		$this->execute("
             CREATE TABLE IF NOT EXISTS `fvat_vat` (
-              `fvat_id` tinyint(11) unsigned NOT NULL AUTO_INCREMENT,
-              `fvat_rate` double unsigned DEFAULT NULL,
+              `fvat_id` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
+              `fvat_rate` decimal(4,2) DEFAULT NULL,
               `fvat_label` char(10) DEFAULT NULL,
-              `fvat_order` tinyint(11) unsigned NOT NULL DEFAULT '0',
-              `fvat_hide` tinyint(4) NOT NULL DEFAULT '0',
+              `fvat_order` tinyint(3) unsigned NOT NULL DEFAULT '0',
+              `fvat_hide` enum('true','false') NOT NULL DEFAULT 'false',
               PRIMARY KEY (`fvat_id`)
             ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
         ");
