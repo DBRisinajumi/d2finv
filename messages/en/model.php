@@ -62,7 +62,7 @@ return array (
   'Finv Notes' => 'Notes',
   'Finv Number' => 'Number',
   'Finv Paid' => 'Paid',
-  'Finv Ref' => 'Ref Id',
+  'Finv Ref' => 'Reference',
   'Finv Reg Date' => 'Reg Date',
   'Finv Series Number' => 'Series Number',
   'Finv Stst' => 'State Id',

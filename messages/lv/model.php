@@ -62,7 +62,7 @@ return array (
   'Finv Notes' => 'Piezīmes',
   'Finv Number' => 'Numurs',
   'Finv Paid' => 'Samaksas statuss',
-  'Finv Ref' => 'References Id',
+  'Finv Ref' => 'Reference',
   'Finv Reg Date' => 'Reģ. datums',
   'Finv Series Number' => 'Sērijas numurs',
   'Finv Stst' => 'Statuss',
