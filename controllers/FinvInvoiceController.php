@@ -22,7 +22,7 @@ public function accessRules()
      return array(
         array(
             'allow',
-            'actions' => array('create', 'admin', 'view', 'update', 'editableSaver', 'delete','ajaxCreate'),
+            'actions' => array('create', 'admin', 'view', 'update', 'editableSaver', 'delete', 'ajaxCreate', 'copy'),
             'roles' => array('D2finv.FinvInvoice.*'),
         ),
         array(
@@ -102,6 +102,30 @@ public function accessRules()
         }
 
         $this->render('create', array('model' => $model));
+    }
+    
+    public function actionCopy()
+    {
+        $model = new FinvInvoice;
+        $model->scenario = $this->scenario;
+
+        if (isset($_GET['finv_id'])) {
+            
+            try {
+                if ($model->duplicate($_GET['finv_id'])) {
+                    if (isset($_GET['returnUrl'])) {
+                        $this->redirect($_GET['returnUrl']);
+                    } else {
+                        $this->redirect(array('view', 'finv_id' => $model->finv_id));
+                    }
+                }
+            } catch (Exception $e) {
+                $model->addError('finv_id', $e->getMessage());
+            }
+            
+        }
+
+        $this->render('copy', array('model' => $model));
     }
 
     public function actionUpdate($finv_id)
