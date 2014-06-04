@@ -17,6 +17,9 @@
  * NOTE, this file must be saved in UTF-8 encoding.
  */
 return array (
+  'Can not copy invoice item!' => '',
+  'Can not update invoice item!' => '',
+  'Can not update invoice!' => '',
   'Create Fiit Invoice Item' => 'Создать запись',
   'Create Finv Invoice' => 'Создать запись',
   'Create Fprc Product Category' => 'Создать запись',
@@ -87,6 +90,7 @@ return array (
   'Fvat Rate' => '',
   'Fvat Vat' => '',
   'Fvat Vats' => '',
+  'System configuration error \'{attribute}\' is not set.' => '',
   'tooltip.fiit_amt' => '',
   'tooltip.fiit_credit_facn_code' => '',
   'tooltip.fiit_debet_facn_code' => '',

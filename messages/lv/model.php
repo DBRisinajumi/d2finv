@@ -17,6 +17,9 @@
  * NOTE, this file must be saved in UTF-8 encoding.
  */
 return array (
+  'Can not copy invoice item!' => 'Nevar nokopēt rēķina detaļas!',
+  'Can not update invoice item!' => 'Nevar saglabāt rēķina detaļu izmaiņas!',
+  'Can not update invoice!' => 'Nevar saglabāt rēķina izmaiņas!',
   'Create Fiit Invoice Item' => 'Izveidot ierakstu',
   'Create Finv Invoice' => 'Izveidot ierakstu',
   'Create Fprc Product Category' => 'Izveidot ierakstu',
@@ -87,6 +90,7 @@ return array (
   'Fvat Rate' => 'Likme',
   'Fvat Vat' => 'PVN',
   'Fvat Vats' => 'PVN',
+  'System configuration error \'{attribute}\' is not set.' => 'Kļūda sistēmas konfigurācijā, nav uzstādīts \'{attribute}\'.',
   'tooltip.fiit_amt' => 'Summa',
   'tooltip.fiit_credit_facn_code' => 'Kredīts',
   'tooltip.fiit_debet_facn_code' => 'Debets',
