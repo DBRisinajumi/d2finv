@@ -93,6 +93,13 @@ class FinvInvoice extends BaseFinvInvoice
         
         foreach ($fiits as $fiit) {
             
+            if (empty($fiit->fiit_price) ||
+                empty($fiit->fiit_quantity) ||
+                empty($fiit->fiit_amt) ||
+                empty($fiit->fiit_vat)) {
+                continue;
+            }
+            
             $fvat = FvatVat::model()->findByPk($fiit->fiit_fvat_id);
             
             $fiit->fiit_amt   = round($fiit->fiit_price * $fiit->fiit_quantity, 2);
