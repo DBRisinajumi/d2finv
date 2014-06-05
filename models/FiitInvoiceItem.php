@@ -51,5 +51,23 @@ class FiitInvoiceItem extends BaseFiitInvoiceItem
             'criteria' => $this->searchCriteria($criteria),
         ));
     }
+    
+    public function save($runValidation = true, $attributes = NULL)
+    {
+        
+        parent::save($runValidation = true, $attributes = NULL);
+        
+        // Recalc invoice
+        $finv = FinvInvoice::model()->findByPk($this->fiit_finv_id);
+        $finv->save();
+        
+        return true;
+        
+    }
+    
+    public function saveWithoutRecalc()
+    {
+        return parent::save();
+    }
 
 }
