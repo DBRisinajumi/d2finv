@@ -82,16 +82,12 @@ class FinvInvoice extends BaseFinvInvoice
         
         foreach ($fiits as $fiit) {
             
-            $criteria = new CDbCriteria;
-            $criteria->compare('t.fvat_id', $fiit->fiit_fvat_id);
-            $fvat = FvatVat::model()->findAll($criteria);
-            
-            $fvat_rate = $fvat[0]->fvat_rate;
+            $fvat = FvatVat::model()->findByPk($fiit->fiit_fvat_id);
             
             $fiit->fiit_amt = round($fiit->fiit_price * $fiit->fiit_quantity, 2);
-            $fiit->fiit_vat = round($fiit->fiit_amt * $fvat_rate / 100, 2);
+            $fiit->fiit_vat = round($fiit->fiit_amt * $fvat->fvat_rate / 100, 2);
             // varbūt šādi? atšķiras apaļošana
-            //$fiit->fiit_total = round($fiit->fiit_amt * (1 + $fvat_rate), 2);
+            //$fiit->fiit_total = round($fiit->fiit_amt * (1 + $fvat->fvat_rate), 2);
             $fiit->fiit_total = $fiit->fiit_amt + $fiit->fiit_vat;
             
             try {
