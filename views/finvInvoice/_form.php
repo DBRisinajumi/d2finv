@@ -7,7 +7,7 @@
 
         $form=$this->beginWidget('TbActiveForm', array(
             'id' => 'finv-invoice-form',
-            'enableAjaxValidation' => true,
+            'enableAjaxValidation' => false,
             'enableClientValidation' => true,
             'htmlOptions' => array(
                 'enctype' => ''
@@ -71,15 +71,15 @@
                     <?php  ?>
                                     
                     <?php  ?>
-                    <div class="control-group">
+                    <!--<div class="control-group">
                         <div class='control-label'>
-                            <?php echo $form->labelEx($model, 'finv_sys_ccmp_id') ?>
+                            <?php //echo $form->labelEx($model, 'finv_sys_ccmp_id') ?>
                         </div>
-                        <div class='controls'>
+                        <!--<div class='controls'>
                             <span class="tooltip-wrapper" data-toggle='tooltip' data-placement="right"
-                                 title='<?php echo (($t = Yii::t('D2finvModule.model', 'tooltip.finv_sys_ccmp_id')) != 'tooltip.finv_sys_ccmp_id')?$t:'' ?>'>
+                                 title='<?php //echo (($t = Yii::t('D2finvModule.model', 'tooltip.finv_sys_ccmp_id')) != 'tooltip.finv_sys_ccmp_id')?$t:'' ?>'>
                                 <?php
-                            $this->widget(
+                            /*$this->widget(
                 '\GtcRelation',
                 array(
                     'model' => $model,
@@ -92,10 +92,10 @@
                     ),
                 )
                 );
-                            echo $form->error($model,'finv_sys_ccmp_id')
+                            echo $form->error($model,'finv_sys_ccmp_id')*/
                             ?>                            </span>
                         </div>
-                    </div>
+                    </div>-->
                     <?php  ?>
                                     
                     <?php  ?>
@@ -127,15 +127,15 @@
                     <?php  ?>
                                     
                     <?php  ?>
-                    <div class="control-group">
+                    <!--<div class="control-group">
                         <div class='control-label'>
-                            <?php echo $form->labelEx($model, 'finv_reg_date') ?>
+                            <?php //echo $form->labelEx($model, 'finv_reg_date') ?>
                         </div>
                         <div class='controls'>
                             <span class="tooltip-wrapper" data-toggle='tooltip' data-placement="right"
-                                 title='<?php echo (($t = Yii::t('D2finvModule.model', 'tooltip.finv_reg_date')) != 'tooltip.finv_reg_date')?$t:'' ?>'>
+                                 title='<?php //echo (($t = Yii::t('D2finvModule.model', 'tooltip.finv_reg_date')) != 'tooltip.finv_reg_date')?$t:'' ?>'>
                                 <?php
-                            $this->widget('zii.widgets.jui.CJuiDatePicker',
+                            /*$this->widget('zii.widgets.jui.CJuiDatePicker',
                          array(
                                  'model' => $model,
                                  'attribute' => 'finv_reg_date',
@@ -150,10 +150,10 @@
                                  )
                              );
                     ;
-                            echo $form->error($model,'finv_reg_date')
+                            echo $form->error($model,'finv_reg_date')*/
                             ?>                            </span>
                         </div>
-                    </div>
+                    </div>-->
                     <?php  ?>
                                     
                     <?php  ?>
@@ -291,16 +291,16 @@
                     <?php  ?>
                                     
                     <?php  ?>
-                    <div class="control-group">
+                    <!--<div class="control-group">
                         <div class='control-label'>
-                            <?php echo $form->labelEx($model, 'finv_amt') ?>
+                            <?php //echo $form->labelEx($model, 'finv_amt') ?>
                         </div>
                         <div class='controls'>
                             <span class="tooltip-wrapper" data-toggle='tooltip' data-placement="right"
-                                 title='<?php echo (($t = Yii::t('D2finvModule.model', 'tooltip.finv_amt')) != 'tooltip.finv_amt')?$t:'' ?>'>
+                                 title='<?php //echo (($t = Yii::t('D2finvModule.model', 'tooltip.finv_amt')) != 'tooltip.finv_amt')?$t:'' ?>'>
                                 <?php
-                            echo $form->textField($model, 'finv_amt', array('size' => 10, 'maxlength' => 10));
-                            echo $form->error($model,'finv_amt')
+                            /*echo $form->textField($model, 'finv_amt', array('size' => 10, 'maxlength' => 10));
+                            echo $form->error($model,'finv_amt')*/
                             ?>                            </span>
                         </div>
                     </div>
@@ -309,14 +309,14 @@
                     <?php  ?>
                     <div class="control-group">
                         <div class='control-label'>
-                            <?php echo $form->labelEx($model, 'finv_vat') ?>
+                            <?php //echo $form->labelEx($model, 'finv_vat') ?>
                         </div>
                         <div class='controls'>
                             <span class="tooltip-wrapper" data-toggle='tooltip' data-placement="right"
-                                 title='<?php echo (($t = Yii::t('D2finvModule.model', 'tooltip.finv_vat')) != 'tooltip.finv_vat')?$t:'' ?>'>
+                                 title='<?php //echo (($t = Yii::t('D2finvModule.model', 'tooltip.finv_vat')) != 'tooltip.finv_vat')?$t:'' ?>'>
                                 <?php
-                            echo $form->textField($model, 'finv_vat', array('size' => 10, 'maxlength' => 10));
-                            echo $form->error($model,'finv_vat')
+                            /*echo $form->textField($model, 'finv_vat', array('size' => 10, 'maxlength' => 10));
+                            echo $form->error($model,'finv_vat')*/
                             ?>                            </span>
                         </div>
                     </div>
@@ -325,14 +325,14 @@
                     <?php  ?>
                     <div class="control-group">
                         <div class='control-label'>
-                            <?php echo $form->labelEx($model, 'finv_total') ?>
+                            <?php //echo $form->labelEx($model, 'finv_total') ?>
                         </div>
                         <div class='controls'>
                             <span class="tooltip-wrapper" data-toggle='tooltip' data-placement="right"
-                                 title='<?php echo (($t = Yii::t('D2finvModule.model', 'tooltip.finv_total')) != 'tooltip.finv_total')?$t:'' ?>'>
+                                 title='<?php //echo (($t = Yii::t('D2finvModule.model', 'tooltip.finv_total')) != 'tooltip.finv_total')?$t:'' ?>'>
                                 <?php
-                            echo $form->textField($model, 'finv_total', array('size' => 10, 'maxlength' => 10));
-                            echo $form->error($model,'finv_total')
+                            /*echo $form->textField($model, 'finv_total', array('size' => 10, 'maxlength' => 10));
+                            echo $form->error($model,'finv_total')*/
                             ?>                            </span>
                         </div>
                     </div>
@@ -341,13 +341,13 @@
                     <?php  ?>
                     <div class="control-group">
                         <div class='control-label'>
-                            <?php echo $form->labelEx($model, 'finv_basic_fcrn_id') ?>
+                            <?php //echo $form->labelEx($model, 'finv_basic_fcrn_id') ?>
                         </div>
                         <div class='controls'>
                             <span class="tooltip-wrapper" data-toggle='tooltip' data-placement="right"
-                                 title='<?php echo (($t = Yii::t('D2finvModule.model', 'tooltip.finv_basic_fcrn_id')) != 'tooltip.finv_basic_fcrn_id')?$t:'' ?>'>
+                                 title='<?php //echo (($t = Yii::t('D2finvModule.model', 'tooltip.finv_basic_fcrn_id')) != 'tooltip.finv_basic_fcrn_id')?$t:'' ?>'>
                                 <?php
-                            $this->widget(
+                            /*$this->widget(
                 '\GtcRelation',
                 array(
                     'model' => $model,
@@ -360,7 +360,7 @@
                     ),
                 )
                 );
-                            echo $form->error($model,'finv_basic_fcrn_id')
+                            echo $form->error($model,'finv_basic_fcrn_id')*/
                             ?>                            </span>
                         </div>
                     </div>
@@ -369,14 +369,14 @@
                     <?php  ?>
                     <div class="control-group">
                         <div class='control-label'>
-                            <?php echo $form->labelEx($model, 'finv_basic_amt') ?>
+                            <?php //echo $form->labelEx($model, 'finv_basic_amt') ?>
                         </div>
                         <div class='controls'>
                             <span class="tooltip-wrapper" data-toggle='tooltip' data-placement="right"
-                                 title='<?php echo (($t = Yii::t('D2finvModule.model', 'tooltip.finv_basic_amt')) != 'tooltip.finv_basic_amt')?$t:'' ?>'>
+                                 title='<?php //echo (($t = Yii::t('D2finvModule.model', 'tooltip.finv_basic_amt')) != 'tooltip.finv_basic_amt')?$t:'' ?>'>
                                 <?php
-                            echo $form->textField($model, 'finv_basic_amt', array('size' => 10, 'maxlength' => 10));
-                            echo $form->error($model,'finv_basic_amt')
+                            /*echo $form->textField($model, 'finv_basic_amt', array('size' => 10, 'maxlength' => 10));
+                            echo $form->error($model,'finv_basic_amt')*/
                             ?>                            </span>
                         </div>
                     </div>
@@ -385,14 +385,14 @@
                     <?php  ?>
                     <div class="control-group">
                         <div class='control-label'>
-                            <?php echo $form->labelEx($model, 'finv_basic_vat') ?>
+                            <?php //echo $form->labelEx($model, 'finv_basic_vat') ?>
                         </div>
                         <div class='controls'>
                             <span class="tooltip-wrapper" data-toggle='tooltip' data-placement="right"
-                                 title='<?php echo (($t = Yii::t('D2finvModule.model', 'tooltip.finv_basic_vat')) != 'tooltip.finv_basic_vat')?$t:'' ?>'>
+                                 title='<?php //echo (($t = Yii::t('D2finvModule.model', 'tooltip.finv_basic_vat')) != 'tooltip.finv_basic_vat')?$t:'' ?>'>
                                 <?php
-                            echo $form->textField($model, 'finv_basic_vat', array('size' => 10, 'maxlength' => 10));
-                            echo $form->error($model,'finv_basic_vat')
+                            /*echo $form->textField($model, 'finv_basic_vat', array('size' => 10, 'maxlength' => 10));
+                            echo $form->error($model,'finv_basic_vat')*/
                             ?>                            </span>
                         </div>
                     </div>
@@ -401,14 +401,14 @@
                     <?php  ?>
                     <div class="control-group">
                         <div class='control-label'>
-                            <?php echo $form->labelEx($model, 'finv_basic_total') ?>
+                            <?php //echo $form->labelEx($model, 'finv_basic_total') ?>
                         </div>
                         <div class='controls'>
                             <span class="tooltip-wrapper" data-toggle='tooltip' data-placement="right"
-                                 title='<?php echo (($t = Yii::t('D2finvModule.model', 'tooltip.finv_basic_total')) != 'tooltip.finv_basic_total')?$t:'' ?>'>
+                                 title='<?php //echo (($t = Yii::t('D2finvModule.model', 'tooltip.finv_basic_total')) != 'tooltip.finv_basic_total')?$t:'' ?>'>
                                 <?php
-                            echo $form->textField($model, 'finv_basic_total', array('size' => 10, 'maxlength' => 10));
-                            echo $form->error($model,'finv_basic_total')
+                            /*echo $form->textField($model, 'finv_basic_total', array('size' => 10, 'maxlength' => 10));
+                            echo $form->error($model,'finv_basic_total')*/
                             ?>                            </span>
                         </div>
                     </div>
@@ -417,17 +417,17 @@
                     <?php  ?>
                     <div class="control-group">
                         <div class='control-label'>
-                            <?php echo $form->labelEx($model, 'finv_basic_payment_before') ?>
+                            <?php //echo $form->labelEx($model, 'finv_basic_payment_before') ?>
                         </div>
                         <div class='controls'>
                             <span class="tooltip-wrapper" data-toggle='tooltip' data-placement="right"
-                                 title='<?php echo (($t = Yii::t('D2finvModule.model', 'tooltip.finv_basic_payment_before')) != 'tooltip.finv_basic_payment_before')?$t:'' ?>'>
+                                 title='<?php //echo (($t = Yii::t('D2finvModule.model', 'tooltip.finv_basic_payment_before')) != 'tooltip.finv_basic_payment_before')?$t:'' ?>'>
                                 <?php
-                            echo $form->textField($model, 'finv_basic_payment_before', array('size' => 10, 'maxlength' => 10));
-                            echo $form->error($model,'finv_basic_payment_before')
+                            /*echo $form->textField($model, 'finv_basic_payment_before', array('size' => 10, 'maxlength' => 10));
+                            echo $form->error($model,'finv_basic_payment_before')*/
                             ?>                            </span>
                         </div>
-                    </div>
+                    </div>-->
                     <?php  ?>
                                     
                     <?php  ?>
@@ -445,7 +445,7 @@
                     'model' => $model,
                     'relation' => 'finvStst',
                     'fields' => 'itemLabel',
-                    'allowEmpty' => true,
+                    'allowEmpty' => false,
                     'style' => 'dropdownlist',
                     'htmlOptions' => array(
                         'checkAll' => 'all'
@@ -459,19 +459,19 @@
                     <?php  ?>
                                     
                     <?php  ?>
-                    <div class="control-group">
+                    <!--<div class="control-group">
                         <div class='control-label'>
-                            <?php echo $form->labelEx($model, 'finv_paid') ?>
+                            <?php //echo $form->labelEx($model, 'finv_paid') ?>
                         </div>
                         <div class='controls'>
                             <span class="tooltip-wrapper" data-toggle='tooltip' data-placement="right"
-                                 title='<?php echo (($t = Yii::t('D2finvModule.model', 'tooltip.finv_paid')) != 'tooltip.finv_paid')?$t:'' ?>'>
+                                 title='<?php //echo (($t = Yii::t('D2finvModule.model', 'tooltip.finv_paid')) != 'tooltip.finv_paid')?$t:'' ?>'>
                                 <?php
-                            echo CHtml::activeDropDownList($model, 'finv_paid', $model->getEnumFieldLabels('finv_paid'));
-                            echo $form->error($model,'finv_paid')
+                            /*echo CHtml::activeDropDownList($model, 'finv_paid', $model->getEnumFieldLabels('finv_paid'));
+                            echo $form->error($model,'finv_paid')*/
                             ?>                            </span>
                         </div>
-                    </div>
+                    </div>-->
                     <?php  ?>
                                     
                     <?php  ?>

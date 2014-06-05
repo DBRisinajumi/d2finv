@@ -105,6 +105,7 @@ if(!$ajax || $ajax == 'fiit-invoice-item-grid'){
                 //decimal(10,4)
                 'class' => 'editable.EditableColumn',
                 'name' => 'fiit_quantity',
+                'htmlOptions' => array('class' => 'numeric-column'),
                 'editable' => array(
                     'url' => $this->createUrl('//d2finv/fiitInvoiceItem/editableSaver'),
                     //'placement' => 'right',
@@ -124,21 +125,23 @@ if(!$ajax || $ajax == 'fiit-invoice-item-grid'){
                 //decimal(10,4)
                 'class' => 'editable.EditableColumn',
                 'name' => 'fiit_price',
+                'htmlOptions' => array('class' => 'numeric-column'),
                 'editable' => array(
                     'url' => $this->createUrl('//d2finv/fiitInvoiceItem/editableSaver'),
                     //'placement' => 'right',
                 )
             ),
-            array(
+            /*array(
                 //decimal(10,2)
                 'class' => 'editable.EditableColumn',
                 'name' => 'fiit_amt',
+                'htmlOptions' => array('class' => 'numeric-column'),
                 'editable' => array(
                     'url' => $this->createUrl('//d2finv/fiitInvoiceItem/editableSaver'),
                     //'placement' => 'right',
                 )
             ),
-            /*
+            
             array(
                 //decimal(10,2)
                 'class' => 'editable.EditableColumn',
@@ -156,7 +159,7 @@ if(!$ajax || $ajax == 'fiit-invoice-item-grid'){
                     'url' => $this->createUrl('//d2finv/fiitInvoiceItem/editableSaver'),
                     //'placement' => 'right',
                 )
-            ),
+            ),*/
             array(
                 'class' => 'editable.EditableColumn',
                 'name' => 'fiit_fvat_id',
@@ -167,7 +170,7 @@ if(!$ajax || $ajax == 'fiit-invoice-item-grid'){
                     //'placement' => 'right',
                 )
             ),
-            */
+            
 
                 array(
                     'class' => 'TbButtonColumn',

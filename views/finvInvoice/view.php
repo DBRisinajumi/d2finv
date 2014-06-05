@@ -56,10 +56,10 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
 
 <div class="row">
     <div class="span5">
-        <h2>
-            <?php echo Yii::t('D2finvModule.crud_static','Data')?>            <small>
-                #<?php echo $model->finv_id ?>            </small>
-        </h2>
+        <!--<h2>
+            <?php //echo Yii::t('D2finvModule.crud_static','Data')?>            <small>
+                #<?php //echo $model->finv_id ?>            </small>
+        </h2>-->
 
         <?php
         $this->widget(
@@ -68,7 +68,7 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
                 'data' => $model,
                 'attributes' => array(
                 
-                array(
+                /*array(
                     'name' => 'finv_id',
                     'type' => 'raw',
                     'value' => $this->widget(
@@ -80,7 +80,7 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
                         ),
                         true
                     )
-                ),
+                ),*/
 
                 array(
                     'name' => 'finv_series_number',
@@ -110,7 +110,7 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
                     )
                 ),
 
-                array(
+                /*array(
                     'name' => 'finv_sys_ccmp_id',
                     'type' => 'raw',    
                     'value' => $this->widget(
@@ -125,7 +125,7 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
                         ), 
                         true
                     )                   
-                ),
+                ),*/
 
                 array(
                     'name' => 'finv_ccmp_id',
@@ -144,7 +144,7 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
                     )                   
                 ),
 
-                array(
+                /*array(
                     'name' => 'finv_reg_date',
                     'type' => 'raw',    
                     'value' => $this->widget(
@@ -158,8 +158,8 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
                         ), 
                         true
                     )                   
-                ),
-
+                ),*/
+                
                 array(
                     'name' => 'finv_date',
                     'type' => 'raw',    
@@ -239,7 +239,7 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
                     )                   
                 ),
 
-                array(
+                /*array(
                     'name' => 'finv_amt',
                     'type' => 'raw',
                     'value' => $this->widget(
@@ -280,7 +280,7 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
                         true
                     )
                 ),
-
+                
                 array(
                     'name' => 'finv_basic_fcrn_id',
                     'type' => 'raw',    
@@ -352,7 +352,7 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
                         ),
                         true
                     )
-                ),
+                ),*/
 
                 array(
                     'name' => 'finv_stst_id',
