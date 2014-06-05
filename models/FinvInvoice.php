@@ -43,6 +43,7 @@ class FinvInvoice extends BaseFinvInvoice
         return array_merge(
             parent::rules(),
             array(
+                array('finv_date_range', 'safe'),
                 array('finv_sys_ccmp_id, finv_basic_fcrn_id', 'required', 'message'=>Yii::t('D2finvModule.model', 'System configuration error \'{attribute}\' is not set.')),
                 array('finv_sys_ccmp_id', 'default', 'value'=>Yii::app()->sysCompany->getActiveCompany()),
                 array('finv_basic_fcrn_id', 'default', 'value'=>Yii::app()->sysCompany->getAttribute('base_fcrn_id')),
@@ -53,9 +54,19 @@ class FinvInvoice extends BaseFinvInvoice
 
     public function search($criteria = null)
     {
+        
         if (is_null($criteria)) {
             $criteria = new CDbCriteria;
         }
+        
+        /**
+         * filter date to from
+         */
+        if (!empty($this->finv_date_range)) {
+            $criteria->AddCondition("t.finv_date >= '".substr($this->finv_date_range,0,10)."'");
+            $criteria->AddCondition("t.finv_date <= '".substr($this->finv_date_range,-10)."'");
+        }
+        
         return new CActiveDataProvider(get_class($this), array(
             'criteria' => $this->searchCriteria($criteria),
         ));
@@ -179,14 +190,6 @@ class FinvInvoice extends BaseFinvInvoice
         parent::beforeFind();
         $criteria = new CDbCriteria;
         $criteria->compare('t.finv_sys_ccmp_id', Yii::app()->sysCompany->getActiveCompany());
-        
-        /**
-         * filter date to from
-         */
-        if (!empty($this->finv_date_range)) {
-            $criteria->AddCondition("t.finv_date >= '".substr($this->finv_date_range,0,10)."'");
-            $criteria->AddCondition("t.finv_date <= '".substr($this->finv_date_range,-10)."'");
-        }
         
         $this->dbCriteria->mergeWith($criteria);   
     }
