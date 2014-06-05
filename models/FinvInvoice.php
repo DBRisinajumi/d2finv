@@ -87,7 +87,7 @@ class FinvInvoice extends BaseFinvInvoice
             $fiit->fiit_amt = round($fiit->fiit_price * $fiit->fiit_quantity, 2);
             $fiit->fiit_vat = round($fiit->fiit_amt * $fvat->fvat_rate / 100, 2);
             // varbūt šādi? atšķiras apaļošana
-            //$fiit->fiit_total = round($fiit->fiit_amt * (1 + $fvat->fvat_rate), 2);
+            //$fiit->fiit_total = round($fiit->fiit_amt * (1 + $fvat->fvat_rate / 100), 2);
             $fiit->fiit_total = $fiit->fiit_amt + $fiit->fiit_vat;
             
             try {
