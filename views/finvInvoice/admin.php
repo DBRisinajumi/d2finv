@@ -77,7 +77,7 @@ $this->widget('TbGridView',
                 'name' => 'finv_series_number',
                 'editable' => array(
                     'url' => $this->createUrl('/d2finv/finvInvoice/editableSaver'),
-                    //'placement' => 'right',
+                    'placement' => 'right',
                 )
             ),
             array(
