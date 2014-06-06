@@ -51,13 +51,13 @@ class FinvInvoice extends BaseFinvInvoice
             )
         );
     }
-
-    public function search($criteria = null)
+    
+    public function searchCriteria($criteria = null)
     {
         
-        if (is_null($criteria)) {
-            $criteria = new CDbCriteria;
-        }
+        $criteria = parent::searchCriteria($criteria);
+        
+        $criteria->compare('t.finv_sys_ccmp_id', Yii::app()->sysCompany->getActiveCompany());
         
         /**
          * filter date to from
@@ -65,6 +65,17 @@ class FinvInvoice extends BaseFinvInvoice
         if (!empty($this->finv_date_range)) {
             $criteria->AddCondition("t.finv_date >= '".substr($this->finv_date_range,0,10)."'");
             $criteria->AddCondition("t.finv_date <= '".substr($this->finv_date_range,-10)."'");
+        }
+        
+        return $criteria;
+        
+    }
+    
+    public function search($criteria = null)
+    {
+        
+        if (is_null($criteria)) {
+            $criteria = new CDbCriteria;
         }
         
         return new CActiveDataProvider(get_class($this), array(
@@ -180,25 +191,9 @@ class FinvInvoice extends BaseFinvInvoice
     
     public function getTotals($column)
     {
-        
-        $records = $this->search()->getData();
-        $total   = 0;
-        
-        foreach ($records as $record) {
-            $total += $record->$column;
-        }
-        
-        return number_format($total, 2, '.', '');
-        
-    }
-    
-    protected function beforeFind()
-    {
-        parent::beforeFind();
-        $criteria = new CDbCriteria;
-        $criteria->compare('t.finv_sys_ccmp_id', Yii::app()->sysCompany->getActiveCompany());
-        
-        $this->dbCriteria->mergeWith($criteria);   
+        $criteria = $this->searchCriteria();
+        $criteria->select = 'SUM(' . $column . ')';
+        return number_format($this->commandBuilder->createFindCommand($this->getTableSchema(), $criteria)->queryScalar(), 2, '.', '');
     }
     
     protected function beforeDelete()
