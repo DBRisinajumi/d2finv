@@ -23,6 +23,7 @@
  * @property FprcProductCategory $fiitFprc
  * @property FqntQuantity $fiitFqnt
  * @property FvatVat $fiitFvat
+ * @property FixrFiitXRef[] $fixrFiitXRefs
  */
 abstract class BaseFiitInvoiceItem extends CActiveRecord
 {
@@ -76,6 +77,7 @@ abstract class BaseFiitInvoiceItem extends CActiveRecord
                 'fiitFprc' => array(self::BELONGS_TO, 'FprcProductCategory', 'fiit_fprc_id'),
                 'fiitFqnt' => array(self::BELONGS_TO, 'FqntQuantity', 'fiit_fqnt_id'),
                 'fiitFvat' => array(self::BELONGS_TO, 'FvatVat', 'fiit_fvat_id'),
+                'fixrFiitXRefs' => array(self::HAS_MANY, 'FixrFiitXRef', 'fixr_fiit_id'),
             )
         );
     }

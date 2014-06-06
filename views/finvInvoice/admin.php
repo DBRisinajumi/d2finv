@@ -129,7 +129,7 @@ $this->widget('TbGridView',
                     //'placement' => 'right',
                 ),
                 'filter' => $this->widget(
-                    'TbFilterDateRangePicker', 
+                    'vendor.dbrisinajumi.DbrLib.widgets.TbFilterDateRangePicker', 
                     array(
                        'model' => $model,
                        'attribute' => 'finv_date_range',
