@@ -12,7 +12,7 @@ $this->setPageTitle(
     . Yii::t('D2finvModule.crud_static', 'Manage')
 );
 
-$this->breadcrumbs[] = Yii::t('D2finvModule.model', 'Finv Invoices');
+//$this->breadcrumbs[] = Yii::t('D2finvModule.model', 'Finv Invoices');
 
 ?>
 
