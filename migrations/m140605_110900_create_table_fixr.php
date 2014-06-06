@@ -1,6 +1,6 @@
 <?php
 
-class m140605_110700_create_table_fret extends CDbMigration
+class m140605_110900_create_table_fixr extends CDbMigration
 {
 
 	/**
