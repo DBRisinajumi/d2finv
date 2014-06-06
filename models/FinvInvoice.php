@@ -43,6 +43,7 @@ class FinvInvoice extends BaseFinvInvoice
         return array_merge(
             parent::rules(),
             array(
+                array('finv_date_range', 'safe'),
                 array('finv_sys_ccmp_id, finv_basic_fcrn_id', 'required', 'message'=>Yii::t('D2finvModule.model', 'System configuration error \'{attribute}\' is not set.')),
                 array('finv_sys_ccmp_id', 'default', 'value'=>Yii::app()->sysCompany->getActiveCompany()),
                 array('finv_basic_fcrn_id', 'default', 'value'=>Yii::app()->sysCompany->getAttribute('base_fcrn_id')),
@@ -53,9 +54,19 @@ class FinvInvoice extends BaseFinvInvoice
 
     public function search($criteria = null)
     {
+        
         if (is_null($criteria)) {
             $criteria = new CDbCriteria;
         }
+        
+        /**
+         * filter date to from
+         */
+        if (!empty($this->finv_date_range)) {
+            $criteria->AddCondition("t.finv_date >= '".substr($this->finv_date_range,0,10)."'");
+            $criteria->AddCondition("t.finv_date <= '".substr($this->finv_date_range,-10)."'");
+        }
+        
         return new CActiveDataProvider(get_class($this), array(
             'criteria' => $this->searchCriteria($criteria),
         ));
@@ -82,16 +93,17 @@ class FinvInvoice extends BaseFinvInvoice
         
         foreach ($fiits as $fiit) {
             
-            $criteria = new CDbCriteria;
-            $criteria->compare('t.fvat_id', $fiit->fiit_fvat_id);
-            $fvat = FvatVat::model()->findAll($criteria);
+            if (empty($fiit->fiit_price) ||
+                empty($fiit->fiit_quantity) ||
+                empty($fiit->fiit_amt) ||
+                empty($fiit->fiit_vat)) {
+                continue;
+            }
             
-            $fvat_rate = $fvat[0]->fvat_rate;
+            $fvat = FvatVat::model()->findByPk($fiit->fiit_fvat_id);
             
-            $fiit->fiit_amt = round($fiit->fiit_price * $fiit->fiit_quantity, 2);
-            $fiit->fiit_vat = round($fiit->fiit_amt * $fvat_rate / 100, 2);
-            // varbūt šādi? atšķiras apaļošana
-            //$fiit->fiit_total = round($fiit->fiit_amt * (1 + $fvat_rate), 2);
+            $fiit->fiit_amt   = round($fiit->fiit_price * $fiit->fiit_quantity, 2);
+            $fiit->fiit_vat   = round($fiit->fiit_amt * $fvat->fvat_rate / 100, 2);
             $fiit->fiit_total = $fiit->fiit_amt + $fiit->fiit_vat;
             
             try {
@@ -185,14 +197,6 @@ class FinvInvoice extends BaseFinvInvoice
         parent::beforeFind();
         $criteria = new CDbCriteria;
         $criteria->compare('t.finv_sys_ccmp_id', Yii::app()->sysCompany->getActiveCompany());
-        
-        /**
-         * filter date to from
-         */
-        if (!empty($this->finv_date_range)) {
-            $criteria->AddCondition("t.finv_date >= '".substr($this->finv_date_range,0,10)."'");
-            $criteria->AddCondition("t.finv_date <= '".substr($this->finv_date_range,-10)."'");
-        }
         
         $this->dbCriteria->mergeWith($criteria);   
     }
