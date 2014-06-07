@@ -18,7 +18,12 @@ class FinvInvoice extends BaseFinvInvoice
     public function init()
     {
         // Default values
-        $this->finv_fcrn_id     = Yii::app()->sysCompany->getAttribute('base_fcrn_id');
+        
+        //special for gii validate on component 'sysCompany'
+        $components = Yii::app()->getComponents();
+        if(in_array('sysCompany',$components)){
+            $this->finv_fcrn_id     = Yii::app()->sysCompany->getAttribute('base_fcrn_id');
+        }
         $this->finv_date        = date('Y-m-d');
         $this->finv_budget_date = date('Y-m-d');
         
