@@ -97,14 +97,26 @@
                     <?php  ?>
                     <div class="control-group">
                         <div class='control-label'>
-                            <?php echo $form->labelEx($model, 'fixr_ref_id') ?>
+                            <?php echo $form->labelEx($model, 'fixr_frep_id') ?>
                         </div>
                         <div class='controls'>
                             <span class="tooltip-wrapper" data-toggle='tooltip' data-placement="right"
-                                 title='<?php echo (($t = Yii::t('D2finvModule.model', 'tooltip.fixr_ref_id')) != 'tooltip.fixr_ref_id')?$t:'' ?>'>
+                                 title='<?php echo (($t = Yii::t('D2finvModule.model', 'tooltip.fixr_frep_id')) != 'tooltip.fixr_frep_id')?$t:'' ?>'>
                                 <?php
-                            echo $form->textField($model, 'fixr_ref_id', array('size' => 10, 'maxlength' => 10));
-                            echo $form->error($model,'fixr_ref_id')
+                            $this->widget(
+                '\GtcRelation',
+                array(
+                    'model' => $model,
+                    'relation' => 'fixrFrep',
+                    'fields' => 'itemLabel',
+                    'allowEmpty' => true,
+                    'style' => 'dropdownlist',
+                    'htmlOptions' => array(
+                        'checkAll' => 'all'
+                    ),
+                )
+                );
+                            echo $form->error($model,'fixr_frep_id')
                             ?>                            </span>
                         </div>
                     </div>
@@ -113,16 +125,16 @@
                     <?php  ?>
                     <div class="control-group">
                         <div class='control-label'>
-                            <?php echo $form->labelEx($model, 'fuxr_fcrn_date') ?>
+                            <?php echo $form->labelEx($model, 'fixr_fcrn_date') ?>
                         </div>
                         <div class='controls'>
                             <span class="tooltip-wrapper" data-toggle='tooltip' data-placement="right"
-                                 title='<?php echo (($t = Yii::t('D2finvModule.model', 'tooltip.fuxr_fcrn_date')) != 'tooltip.fuxr_fcrn_date')?$t:'' ?>'>
+                                 title='<?php echo (($t = Yii::t('D2finvModule.model', 'tooltip.fixr_fcrn_date')) != 'tooltip.fixr_fcrn_date')?$t:'' ?>'>
                                 <?php
                             $this->widget('zii.widgets.jui.CJuiDatePicker',
                          array(
                                  'model' => $model,
-                                 'attribute' => 'fuxr_fcrn_date',
+                                 'attribute' => 'fixr_fcrn_date',
                                  'language' =>  strstr(Yii::app()->language.'_','_',true),
                                  'htmlOptions' => array('size' => 10),
                                  'options' => array(
@@ -134,7 +146,7 @@
                                  )
                              );
                     ;
-                            echo $form->error($model,'fuxr_fcrn_date')
+                            echo $form->error($model,'fixr_fcrn_date')
                             ?>                            </span>
                         </div>
                     </div>
@@ -143,17 +155,17 @@
                     <?php  ?>
                     <div class="control-group">
                         <div class='control-label'>
-                            <?php echo $form->labelEx($model, 'fuxr_fcrn_id') ?>
+                            <?php echo $form->labelEx($model, 'fixr_fcrn_id') ?>
                         </div>
                         <div class='controls'>
                             <span class="tooltip-wrapper" data-toggle='tooltip' data-placement="right"
-                                 title='<?php echo (($t = Yii::t('D2finvModule.model', 'tooltip.fuxr_fcrn_id')) != 'tooltip.fuxr_fcrn_id')?$t:'' ?>'>
+                                 title='<?php echo (($t = Yii::t('D2finvModule.model', 'tooltip.fixr_fcrn_id')) != 'tooltip.fixr_fcrn_id')?$t:'' ?>'>
                                 <?php
                             $this->widget(
                 '\GtcRelation',
                 array(
                     'model' => $model,
-                    'relation' => 'fuxrFcrn',
+                    'relation' => 'fixrFcrn',
                     'fields' => 'itemLabel',
                     'allowEmpty' => true,
                     'style' => 'dropdownlist',
@@ -162,7 +174,7 @@
                     ),
                 )
                 );
-                            echo $form->error($model,'fuxr_fcrn_id')
+                            echo $form->error($model,'fixr_fcrn_id')
                             ?>                            </span>
                         </div>
                     </div>
@@ -171,14 +183,14 @@
                     <?php  ?>
                     <div class="control-group">
                         <div class='control-label'>
-                            <?php echo $form->labelEx($model, 'fuxr_amt') ?>
+                            <?php echo $form->labelEx($model, 'fixr_amt') ?>
                         </div>
                         <div class='controls'>
                             <span class="tooltip-wrapper" data-toggle='tooltip' data-placement="right"
-                                 title='<?php echo (($t = Yii::t('D2finvModule.model', 'tooltip.fuxr_amt')) != 'tooltip.fuxr_amt')?$t:'' ?>'>
+                                 title='<?php echo (($t = Yii::t('D2finvModule.model', 'tooltip.fixr_amt')) != 'tooltip.fixr_amt')?$t:'' ?>'>
                                 <?php
-                            echo $form->textField($model, 'fuxr_amt', array('size' => 10, 'maxlength' => 10));
-                            echo $form->error($model,'fuxr_amt')
+                            echo $form->textField($model, 'fixr_amt', array('size' => 10, 'maxlength' => 10));
+                            echo $form->error($model,'fixr_amt')
                             ?>                            </span>
                         </div>
                     </div>
@@ -187,17 +199,17 @@
                     <?php  ?>
                     <div class="control-group">
                         <div class='control-label'>
-                            <?php echo $form->labelEx($model, 'fuxr_base_fcrn_id') ?>
+                            <?php echo $form->labelEx($model, 'fixr_base_fcrn_id') ?>
                         </div>
                         <div class='controls'>
                             <span class="tooltip-wrapper" data-toggle='tooltip' data-placement="right"
-                                 title='<?php echo (($t = Yii::t('D2finvModule.model', 'tooltip.fuxr_base_fcrn_id')) != 'tooltip.fuxr_base_fcrn_id')?$t:'' ?>'>
+                                 title='<?php echo (($t = Yii::t('D2finvModule.model', 'tooltip.fixr_base_fcrn_id')) != 'tooltip.fixr_base_fcrn_id')?$t:'' ?>'>
                                 <?php
                             $this->widget(
                 '\GtcRelation',
                 array(
                     'model' => $model,
-                    'relation' => 'fuxrBaseFcrn',
+                    'relation' => 'fixrBaseFcrn',
                     'fields' => 'itemLabel',
                     'allowEmpty' => true,
                     'style' => 'dropdownlist',
@@ -206,7 +218,7 @@
                     ),
                 )
                 );
-                            echo $form->error($model,'fuxr_base_fcrn_id')
+                            echo $form->error($model,'fixr_base_fcrn_id')
                             ?>                            </span>
                         </div>
                     </div>
@@ -223,130 +235,6 @@
                                 <?php
                             echo $form->textField($model, 'fixr_base_amt', array('size' => 10, 'maxlength' => 10));
                             echo $form->error($model,'fixr_base_amt')
-                            ?>                            </span>
-                        </div>
-                    </div>
-                    <?php  ?>
-                                    
-                    <?php  ?>
-                    <div class="control-group">
-                        <div class='control-label'>
-                            <?php echo $form->labelEx($model, 'fixr_start_date') ?>
-                        </div>
-                        <div class='controls'>
-                            <span class="tooltip-wrapper" data-toggle='tooltip' data-placement="right"
-                                 title='<?php echo (($t = Yii::t('D2finvModule.model', 'tooltip.fixr_start_date')) != 'tooltip.fixr_start_date')?$t:'' ?>'>
-                                <?php
-                            $this->widget('zii.widgets.jui.CJuiDatePicker',
-                         array(
-                                 'model' => $model,
-                                 'attribute' => 'fixr_start_date',
-                                 'language' =>  strstr(Yii::app()->language.'_','_',true),
-                                 'htmlOptions' => array('size' => 10),
-                                 'options' => array(
-                                     'showButtonPanel' => true,
-                                     'changeYear' => true,
-                                     'changeYear' => true,
-                                     'dateFormat' => 'yy-mm-dd',
-                                     ),
-                                 )
-                             );
-                    ;
-                            echo $form->error($model,'fixr_start_date')
-                            ?>                            </span>
-                        </div>
-                    </div>
-                    <?php  ?>
-                                    
-                    <?php  ?>
-                    <div class="control-group">
-                        <div class='control-label'>
-                            <?php echo $form->labelEx($model, 'fixr_months') ?>
-                        </div>
-                        <div class='controls'>
-                            <span class="tooltip-wrapper" data-toggle='tooltip' data-placement="right"
-                                 title='<?php echo (($t = Yii::t('D2finvModule.model', 'tooltip.fixr_months')) != 'tooltip.fixr_months')?$t:'' ?>'>
-                                <?php
-                            echo $form->textField($model, 'fixr_months');
-                            echo $form->error($model,'fixr_months')
-                            ?>                            </span>
-                        </div>
-                    </div>
-                    <?php  ?>
-                                    
-                    <?php  ?>
-                    <div class="control-group">
-                        <div class='control-label'>
-                            <?php echo $form->labelEx($model, 'fixr_end_date') ?>
-                        </div>
-                        <div class='controls'>
-                            <span class="tooltip-wrapper" data-toggle='tooltip' data-placement="right"
-                                 title='<?php echo (($t = Yii::t('D2finvModule.model', 'tooltip.fixr_end_date')) != 'tooltip.fixr_end_date')?$t:'' ?>'>
-                                <?php
-                            $this->widget('zii.widgets.jui.CJuiDatePicker',
-                         array(
-                                 'model' => $model,
-                                 'attribute' => 'fixr_end_date',
-                                 'language' =>  strstr(Yii::app()->language.'_','_',true),
-                                 'htmlOptions' => array('size' => 10),
-                                 'options' => array(
-                                     'showButtonPanel' => true,
-                                     'changeYear' => true,
-                                     'changeYear' => true,
-                                     'dateFormat' => 'yy-mm-dd',
-                                     ),
-                                 )
-                             );
-                    ;
-                            echo $form->error($model,'fixr_end_date')
-                            ?>                            </span>
-                        </div>
-                    </div>
-                    <?php  ?>
-                                    
-                    <?php  ?>
-                    <div class="control-group">
-                        <div class='control-label'>
-                            <?php echo $form->labelEx($model, 'fixr_start_abs_odo') ?>
-                        </div>
-                        <div class='controls'>
-                            <span class="tooltip-wrapper" data-toggle='tooltip' data-placement="right"
-                                 title='<?php echo (($t = Yii::t('D2finvModule.model', 'tooltip.fixr_start_abs_odo')) != 'tooltip.fixr_start_abs_odo')?$t:'' ?>'>
-                                <?php
-                            echo $form->textField($model, 'fixr_start_abs_odo', array('size' => 10, 'maxlength' => 10));
-                            echo $form->error($model,'fixr_start_abs_odo')
-                            ?>                            </span>
-                        </div>
-                    </div>
-                    <?php  ?>
-                                    
-                    <?php  ?>
-                    <div class="control-group">
-                        <div class='control-label'>
-                            <?php echo $form->labelEx($model, 'fixr_km') ?>
-                        </div>
-                        <div class='controls'>
-                            <span class="tooltip-wrapper" data-toggle='tooltip' data-placement="right"
-                                 title='<?php echo (($t = Yii::t('D2finvModule.model', 'tooltip.fixr_km')) != 'tooltip.fixr_km')?$t:'' ?>'>
-                                <?php
-                            echo $form->textField($model, 'fixr_km', array('size' => 10, 'maxlength' => 10));
-                            echo $form->error($model,'fixr_km')
-                            ?>                            </span>
-                        </div>
-                    </div>
-                    <?php  ?>
-                                    
-                    <?php  ?>
-                    <div class="control-group">
-                        <div class='control-label'>
-                            <?php echo $form->labelEx($model, 'fixr_end_abs_odo') ?>
-                        </div>
-                        <div class='controls'>
-                            <span class="tooltip-wrapper" data-toggle='tooltip' data-placement="right"
-                                 title='<?php echo (($t = Yii::t('D2finvModule.model', 'tooltip.fixr_end_abs_odo')) != 'tooltip.fixr_end_abs_odo')?$t:'' ?>'>
-                                <?php
-                            echo $form->textField($model, 'fixr_end_abs_odo', array('size' => 10, 'maxlength' => 10));
-                            echo $form->error($model,'fixr_end_abs_odo')
                             ?>                            </span>
                         </div>
                     </div>

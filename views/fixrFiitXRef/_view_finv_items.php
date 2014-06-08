@@ -22,6 +22,11 @@
             td.rel_grid-sub{padding-top: 0px; border-top-width: 0px;}
             ');
         }
+        $this->widget('EFancyboxWidget',array(
+            'selector'=>'a[href*=\'d2finv/fpedPeriodDate/createPopup\']',
+            'options'=>array(
+            ),
+        ));        
 
         foreach ($modelMain->fiitInvoiceItems as $fiit) {
             ?>
@@ -38,7 +43,9 @@
                 <td colspan="7" class="rel_grid-sub">
                     <h3 class="rel_grid-sub">
                         <?php
+                        
                         $sub_grid_id = 'fixr-grid-' . $fiit->primaryKey;
+                        
                         $this->widget(
                                 'bootstrap.widgets.TbButton', array(
                             'buttonType' => 'ajaxButton',
@@ -86,67 +93,51 @@
                         ),
                         'columns' => array(
                             array(
+                                'class' => 'editable.EditableColumn',
+                                'name' => 'fixr_fret_id',
+                                'editable' => array(
+                                    'type' => 'select',
+                                    'url' => $this->createUrl('/d2finv/fixrFiitXRef/editableSaver'),
+                                    'source' => CHtml::listData(FretRefType::model()->findAll(array('limit' => 1000)), 'fret_id', 'itemLabel'),                        
+                                    //'placement' => 'right',
+                                )
+                            ),
+                            array(
+                                'class' => 'editable.EditableColumn',
+                                'name' => 'fixr_frep_id',
+                                'editable' => array(
+                                    'type' => 'select',
+                                    'url' => $this->createUrl('/d2finv/fixrFiitXRef/editableSaver'),
+                                    'source' => CHtml::listData(FrepRefPeriod::model()->findAll(array('limit' => 1000)), 'frep_id', 'itemLabel'),                        
+                                    //'placement' => 'right',
+                                )
+                            ),
+                            array(
                                 //decimal(10,2)
                                 'class' => 'editable.EditableColumn',
-                                'name' => 'fuxr_amt',
+                                'name' => 'fixr_amt',
                                 'editable' => array(
-                                    'url' => $this->createUrl('//d2finv/fixrFiitXRef/editableSaver'),
-                                //'placement' => 'right',
+                                    'url' => $this->createUrl('/d2finv/fixrFiitXRef/editableSaver'),
+                                    //'placement' => 'right',
                                 )
                             ),
+//                            array(
+//                                'type' => 'raw',
+//                                'value' => 'CHtml::ajaxLink(
+//                                                \''.Yii::t('D2finvModule.crud_static', 'Define Period').'\',
+//                                                \''.$this->createUrl('/d2finv/fpedPeriodDate/createPopup').'\',
+//                                            array(
+//                                                \'onclick\'=>\'$("#periodDialog").dialog("open"); return false;\',
+//                                                \'update\'=>\'#periodDialog\'
+//                                            ),
+//                                            array(\'id\'=>\'showPeriodDialog\'));'
+//                            ),
                             array(
-                                'class' => 'editable.EditableColumn',
-                                'name' => 'fixr_start_date',
-                                'editable' => array(
-                                    'type' => 'date',
-                                    'url' => $this->createUrl('//d2finv/fixrFiitXRef/editableSaver'),
-                                //'placement' => 'right',
-                                )
-                            ),
-                            array(
-                                //smallint(10) unsigned
-                                'class' => 'editable.EditableColumn',
-                                'name' => 'fixr_months',
-                                'editable' => array(
-                                    'url' => $this->createUrl('//d2finv/fixrFiitXRef/editableSaver'),
-                                //'placement' => 'right',
-                                )
-                            ),
-                            array(
-                                'class' => 'editable.EditableColumn',
-                                'name' => 'fixr_end_date',
-                                'editable' => array(
-                                    'type' => 'date',
-                                    'url' => $this->createUrl('//d2finv/fixrFiitXRef/editableSaver'),
-                                //'placement' => 'right',
-                                )
-                            ),
-                            array(
-                                //int(10) unsigned
-                                'class' => 'editable.EditableColumn',
-                                'name' => 'fixr_start_abs_odo',
-                                'editable' => array(
-                                    'url' => $this->createUrl('//d2finv/fixrFiitXRef/editableSaver'),
-                                //'placement' => 'right',
-                                )
-                            ),
-                            array(
-                                //int(10) unsigned
-                                'class' => 'editable.EditableColumn',
-                                'name' => 'fixr_km',
-                                'editable' => array(
-                                    'url' => $this->createUrl('//d2finv/fixrFiitXRef/editableSaver'),
-                                //'placement' => 'right',
-                                )
-                            ),
-                            array(
-                                //int(10) unsigned
-                                'class' => 'editable.EditableColumn',
-                                'name' => 'fixr_end_abs_odo',
-                                'editable' => array(
-                                    'url' => $this->createUrl('//d2finv/fixrFiitXRef/editableSaver'),
-                                //'placement' => 'right',
-                                )
+                                'type' => 'raw',
+                                'value' => 'CHtml::link(
+                                                \''.Yii::t('D2finvModule.crud_static', 'Define Period').'\',
+                                                \''.$this->createUrl('/d2finv/fpedPeriodDate/createPopup').'\'
+                                            );'
                             ),
                             array(
                                 'class' => 'TbButtonColumn',

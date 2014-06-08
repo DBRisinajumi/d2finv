@@ -84,17 +84,18 @@ $this->widget('TbGridView',
                 )
             ),
             array(
-                //int(10) unsigned
                 'class' => 'editable.EditableColumn',
-                'name' => 'fixr_ref_id',
+                'name' => 'fixr_frep_id',
                 'editable' => array(
+                    'type' => 'select',
                     'url' => $this->createUrl('/d2finv/fixrFiitXRef/editableSaver'),
+                    'source' => CHtml::listData(FrepRefPeriod::model()->findAll(array('limit' => 1000)), 'frep_id', 'itemLabel'),                        
                     //'placement' => 'right',
                 )
             ),
             array(
                 'class' => 'editable.EditableColumn',
-                'name' => 'fuxr_fcrn_date',
+                'name' => 'fixr_fcrn_date',
                 'editable' => array(
                     'type' => 'date',
                     'url' => $this->createUrl('/d2finv/fixrFiitXRef/editableSaver'),
@@ -103,7 +104,7 @@ $this->widget('TbGridView',
             ),
             array(
                 'class' => 'editable.EditableColumn',
-                'name' => 'fuxr_fcrn_id',
+                'name' => 'fixr_fcrn_id',
                 'editable' => array(
                     'type' => 'select',
                     'url' => $this->createUrl('/d2finv/fixrFiitXRef/editableSaver'),
@@ -114,7 +115,7 @@ $this->widget('TbGridView',
             array(
                 //decimal(10,2)
                 'class' => 'editable.EditableColumn',
-                'name' => 'fuxr_amt',
+                'name' => 'fixr_amt',
                 'editable' => array(
                     'url' => $this->createUrl('/d2finv/fixrFiitXRef/editableSaver'),
                     //'placement' => 'right',
@@ -122,7 +123,7 @@ $this->widget('TbGridView',
             ),
             array(
                 'class' => 'editable.EditableColumn',
-                'name' => 'fuxr_base_fcrn_id',
+                'name' => 'fixr_base_fcrn_id',
                 'editable' => array(
                     'type' => 'select',
                     'url' => $this->createUrl('/d2finv/fixrFiitXRef/editableSaver'),
@@ -135,60 +136,6 @@ $this->widget('TbGridView',
                 //decimal(10,2) unsigned
                 'class' => 'editable.EditableColumn',
                 'name' => 'fixr_base_amt',
-                'editable' => array(
-                    'url' => $this->createUrl('/d2finv/fixrFiitXRef/editableSaver'),
-                    //'placement' => 'right',
-                )
-            ),
-            array(
-                'class' => 'editable.EditableColumn',
-                'name' => 'fixr_start_date',
-                'editable' => array(
-                    'type' => 'date',
-                    'url' => $this->createUrl('/d2finv/fixrFiitXRef/editableSaver'),
-                    //'placement' => 'right',
-                )
-            ),
-            array(
-                //smallint(10) unsigned
-                'class' => 'editable.EditableColumn',
-                'name' => 'fixr_months',
-                'editable' => array(
-                    'url' => $this->createUrl('/d2finv/fixrFiitXRef/editableSaver'),
-                    //'placement' => 'right',
-                )
-            ),
-            array(
-                'class' => 'editable.EditableColumn',
-                'name' => 'fixr_end_date',
-                'editable' => array(
-                    'type' => 'date',
-                    'url' => $this->createUrl('/d2finv/fixrFiitXRef/editableSaver'),
-                    //'placement' => 'right',
-                )
-            ),
-            array(
-                //int(10) unsigned
-                'class' => 'editable.EditableColumn',
-                'name' => 'fixr_start_abs_odo',
-                'editable' => array(
-                    'url' => $this->createUrl('/d2finv/fixrFiitXRef/editableSaver'),
-                    //'placement' => 'right',
-                )
-            ),
-            array(
-                //int(10) unsigned
-                'class' => 'editable.EditableColumn',
-                'name' => 'fixr_km',
-                'editable' => array(
-                    'url' => $this->createUrl('/d2finv/fixrFiitXRef/editableSaver'),
-                    //'placement' => 'right',
-                )
-            ),
-            array(
-                //int(10) unsigned
-                'class' => 'editable.EditableColumn',
-                'name' => 'fixr_end_abs_odo',
                 'editable' => array(
                     'url' => $this->createUrl('/d2finv/fixrFiitXRef/editableSaver'),
                     //'placement' => 'right',
