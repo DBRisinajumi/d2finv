@@ -33,7 +33,7 @@ public function accessRules()
         ),
         array(
             'allow',
-            'actions' => array('view', 'admin'), // let the user view the grid
+            'actions' => array('view', 'admin', 'demo'), // let the user view the grid
             'roles' => array('D2finv.FinvInvoice.View'),
         ),
         array(
@@ -74,6 +74,21 @@ public function accessRules()
                     );
         }else{
             $this->render('view', array('model' => $model,));
+        }
+    }
+    
+    public function actionDemo($finv_id, $ajax = false)
+    {
+        $model = $this->loadModel($finv_id);
+        if($ajax){
+            $this->renderPartial('_view-relations_grids', 
+                    array(
+                        'modelMain' => $model,
+                        'ajax' => $ajax,
+                        )
+                    );
+        }else{
+            $this->render('demo', array('model' => $model,));
         }
     }
 
