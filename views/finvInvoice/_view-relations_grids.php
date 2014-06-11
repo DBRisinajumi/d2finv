@@ -1,8 +1,10 @@
 <?php
 if(!$ajax){
     Yii::app()->clientScript->registerCss('rel_grid',' 
-            .rel-grid-view {padding-top:0px;margin-top: -35px;}
+            .rel-grid-view {padding-top:0px;margin-top: 0px;padding-bottom:2px;}
             h3.rel_grid{padding-left: 40px;}
+            .rel-grid-view div.summary {display:none;}
+            .grid-view-loading {background-position: 10px bottom;}
             ');     
 }
 ?>
@@ -11,10 +13,10 @@ if(!$ajax || $ajax == 'fiit-invoice-item-grid'){
     Yii::beginProfile('fiit_finv_id.view.grid');
 ?>
 
-<h3 class="rel_grid">    
+<div class="table-header">
     <?=Yii::t('D2finvModule.model', 'Fiit Invoice Item')?>
     <?php    
-        
+
     $this->widget(
         'bootstrap.widgets.TbButton',
         array(
@@ -52,8 +54,7 @@ if(!$ajax || $ajax == 'fiit-invoice-item-grid'){
         )
     );        
     ?>
-</h3> 
- 
+</div>
 <?php 
 
     if (empty($modelMain->fiitInvoiceItems)) {
