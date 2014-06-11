@@ -5,11 +5,11 @@ $this->setPageTitle(
     . Yii::t('D2finvModule.crud', 'Manage')
 );
 
-$this->breadcrumbs[] = Yii::t('D2finvModule.model', 'Fped Period Dates');
+//$this->breadcrumbs[] = Yii::t('D2finvModule.model', 'Fped Period Dates');
 
 ?>
 
-<?php $this->widget("TbBreadcrumbs", array("links" => $this->breadcrumbs)) ?>
+<?php //$this->widget("TbBreadcrumbs", array("links" => $this->breadcrumbs)) ?>
 <div class="clearfix">
     <div class="btn-toolbar pull-left">
         <div class="btn-group">

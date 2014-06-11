@@ -5,8 +5,8 @@ $this->setPageTitle(
     . Yii::t('D2finvModule.crud_static', 'Create')
 );
 
-$this->breadcrumbs[Yii::t('D2finvModule.model', 'Fprc Product Categories')] = array('admin');
-$this->breadcrumbs[] = Yii::t('D2finvModule.crud_static', 'Create');
+//$this->breadcrumbs[Yii::t('D2finvModule.model', 'Fprc Product Categories')] = array('admin');
+//$this->breadcrumbs[] = Yii::t('D2finvModule.crud_static', 'Create');
 $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
     #"label"=>Yii::t("D2finvModule.crud_static","Cancel"),
     "icon"=>"chevron-left",
@@ -21,7 +21,7 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
  ),true);
     
 ?>
-<?php $this->widget("TbBreadcrumbs", array("links" => $this->breadcrumbs)) ?>
+<?php //$this->widget("TbBreadcrumbs", array("links" => $this->breadcrumbs)) ?>
 <div class="clearfix">
     <div class="btn-toolbar pull-left">
         <div class="btn-group"><?php echo $cancel_buton;?></div>

@@ -6,9 +6,9 @@
         . ': '   
         . $model->getItemLabel()            
 );    
-$this->breadcrumbs[Yii::t('D2finvModule.model','Fvat Vats')] = array('admin');
-$this->breadcrumbs[$model->{$model->tableSchema->primaryKey}] = array('view','id' => $model->{$model->tableSchema->primaryKey});
-$this->breadcrumbs[] = Yii::t('D2finvModule.crud_static', 'View');
+//$this->breadcrumbs[Yii::t('D2finvModule.model','Fvat Vats')] = array('admin');
+//$this->breadcrumbs[$model->{$model->tableSchema->primaryKey}] = array('view','id' => $model->{$model->tableSchema->primaryKey});
+//$this->breadcrumbs[] = Yii::t('D2finvModule.crud_static', 'View');
 $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
     #"label"=>Yii::t("D2finvModule.crud_static","Cancel"),
     "icon"=>"chevron-left",
@@ -23,7 +23,7 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
  ),true);
     
 ?>
-<?php $this->widget("TbBreadcrumbs", array("links"=>$this->breadcrumbs)) ?>
+<?php //$this->widget("TbBreadcrumbs", array("links"=>$this->breadcrumbs)) ?>
 <div class="clearfix">
     <div class="btn-toolbar pull-left">
         <div class="btn-group"><?php echo $cancel_buton;?></div>

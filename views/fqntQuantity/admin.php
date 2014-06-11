@@ -5,11 +5,11 @@ $this->setPageTitle(
     . Yii::t('D2finvModule.crud_static', 'Manage')
 );
 
-$this->breadcrumbs[] = Yii::t('D2finvModule.model', 'Fqnt Quantities');
+//$this->breadcrumbs[] = Yii::t('D2finvModule.model', 'Fqnt Quantities');
 
 ?>
 
-<?php $this->widget("TbBreadcrumbs", array("links" => $this->breadcrumbs)) ?>
+<?php //$this->widget("TbBreadcrumbs", array("links" => $this->breadcrumbs)) ?>
 <div class="clearfix">
     <div class="btn-toolbar pull-left">
         <div class="btn-group">
