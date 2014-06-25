@@ -324,7 +324,7 @@ $this->widget('TbGridView',
                     'update' => array('visible' => 'Yii::app()->user->checkAccess("InvoiceEdit")'),
                     'delete' => array('visible' => 'Yii::app()->user->checkAccess("InvoiceEdit")'),
                     'copy' => array(
-                        'label'=>'Copy',
+                        'label'=>Yii::t('D2finvModule.crud_static','Copy'),
                         'icon'=>'copy',
                         'url'=>'Yii::app()->controller->createUrl("copy", array("finv_id" => $data->finv_id))',
                         'visible' => 'Yii::app()->user->checkAccess("InvoiceEdit")'

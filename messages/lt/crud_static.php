@@ -17,6 +17,9 @@
  * NOTE, this file must be saved in UTF-8 encoding.
  */
 return array (
+  'Copy' => 'Kopijuoti',
+  'Define Period' => '',
+  'Link items to expense positions' => '',
   'Add new record' => 'Pridėti naują įrašą',
   'Back' => 'Atgal',
   'Cancel' => 'Atšaukti',

@@ -17,6 +17,9 @@
  * NOTE, this file must be saved in UTF-8 encoding.
  */
 return array (
+  'Copy' => 'Copy',
+  'Define Period' => '',
+  'Link items to expense positions' => '',
   'Add new record' => 'Add new record',
   'Back' => 'Back',
   'Cancel' => 'Cancel',
