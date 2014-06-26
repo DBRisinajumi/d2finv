@@ -46,7 +46,7 @@ if(!$ajax || $ajax == 'fiit-invoice-item-grid'){
             'type' => 'info', // '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
             'size' => 'mini',
             'url' => array(
-                '//d2finv/FixrFiitXRef/viewFinv',
+                '//d2fixr/FixrFiitXRef/viewFinv',
                 'finv_id' => $modelMain->primaryKey,
             ),
         )
