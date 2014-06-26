@@ -18,6 +18,9 @@
  */
 return array (
   'Add new record' => '',
+  'Copy' => 'Копировать',
+  'Define Period' => '',
+  'Link items to expense positions' => '',
   'Back' => 'Назад',
   'Cancel' => 'Отменить',
   'Create' => 'Создавать',
