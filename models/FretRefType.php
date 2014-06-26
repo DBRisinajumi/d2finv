@@ -23,6 +23,11 @@ class FretRefType extends BaseFretRefType
         return parent::getItemLabel();
     }
 
+    public function getRefIfFIeldName()
+    {
+        return strtolower(substr($this->fret_model,0,4)) . '_fixr_id';
+    }
+
     public function behaviors()
     {
         return array_merge(

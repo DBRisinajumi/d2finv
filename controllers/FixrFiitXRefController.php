@@ -22,7 +22,7 @@ public function accessRules()
      return array(
         array(
             'allow',
-            'actions' => array('create', 'admin', 'view', 'update', 'editableSaver', 'delete','ajaxCreate','viewFinv'),
+            'actions' => array('popupServices','serviceSubForm','create', 'admin', 'view', 'update', 'editableSaver', 'delete','ajaxCreate','viewFinv'),
             'roles' => array('D2finv.FixrFiitXRef.*'),
         ),
         array(
@@ -60,7 +60,90 @@ public function accessRules()
         }
         return true;
     }
+    
+    /**
+     * 
+     * @param type $fixr_id
+     * @todo jāpārnes uz citu kontrolieri (laikam popupFixr tjipa)
+     */
+    public function actionPopupServices($fixr_id)
+    {
 
+        $model_fixr = FixrFiitXRef::model()->findByPk($fixr_id);
+        $model_form = false;
+        
+        /**
+         * atrod formas modeli un inicializē
+         * @todo jāpārtaisa, lai ņem no tabulas fret_ref_type
+         */
+        switch ($model_fixr->fixr_fret_id){
+            case 1: //truck doc
+                $model_form = VtdcTruckDoc::model()->find();
+                break;
+            case 2: //truck service
+                break;
+            case 3: //trailer service
+                break;
+            case 4: //trailer doc
+                break;
+            default:
+                break;
+        }
+
+        $cs = Yii::app()->clientScript;
+        $cs->reset();        
+        $cs->scriptMap = array(
+            'jquery.js' => false, // prevent produce jquery.js in additional javascript data
+            'jquery.min.js' => false,
+        );        
+        
+        echo $this->renderPartial(
+                'popupServices', 
+                array(
+                    'model_fixr' => $model_fixr,
+                    'model_form' => $model_form
+                ),
+                true,
+                true);
+    }    
+
+    
+    
+    public function actionServiceSubForm($fret_id,$fixr_id){
+
+        $model_fixr = FixrFiitXRef::model()->findByPk($fixr_id);
+
+        //save selected service type
+        $model_fixr->fixr_fret_id = $fret_id;
+        $model_fixr->save();
+        
+        //get model form detqails
+        $form_model_ref_field = $model_fixr->fixrFret->getRefIfFIeldName();
+        $form_model_name = $model_fixr->fixrFret->fret_model;
+        
+        //search model form record
+        $criteria = new CDbCriteria();
+        $criteria->compare($form_model_ref_field, $fixr_id);
+        $form_model = new $form_model_name;
+        $form_model = $form_model->find($criteria);
+        if(!$form_model){
+            $form_model = new $form_model_name;
+        }
+
+        /**
+         * @todo views jāpārceļ uz truck moduli
+         */
+        echo $this->renderPartial(
+                'form_'.$form_model_name, 
+                array(
+                    'model_form' => $model_form
+                ),
+                true,
+                true);        
+        
+        
+        
+    }
     public function actionView($fixr_id, $ajax = false)
     {
         $model = $this->loadModel($fixr_id);

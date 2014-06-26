@@ -22,7 +22,7 @@ public function accessRules()
      return array(
         array(
             'allow',
-            'actions' => array('createPopup', 'admin', 'view', 'update', 'editableSaver', 'delete','ajaxCreate'),
+            'actions' => array('popupServices', 'admin', 'view', 'update', 'editableSaver', 'delete','ajaxCreate'),
             'roles' => array('D2finv.FpedPeriodDate.*'),
         ),
         array(
@@ -104,7 +104,7 @@ public function accessRules()
         $this->render('create', array('model' => $model));
     }
 
-    public function actionCreatePopup()
+    public function actionPopupPeriods($fixr_id)
     {
         $model = new FpedPeriodDate;
         $model->scenario = $this->scenario;
@@ -128,9 +128,47 @@ public function accessRules()
         } elseif (isset($_GET['FpedPeriodDate'])) {
             $model->attributes = $_GET['FpedPeriodDate'];
         }
-        Yii::app()->clientScript->scriptMap['jquery.js'] = false;
-        Yii::app()->clientScript->scriptMap['jquery.min.js'] = false;        
-        $this->renderPartial('createPopup', array('model' => $model),false,true);
+        echo $this->renderPartial('formPopup', array('model' => $model),true,true);
+    }
+    
+    /**
+     * 
+     * @param type $fixr_id
+     * @todo jāpārnes uz citu kontrolieri (laikam popupFixr tjipa)
+     */
+    public function actionPopupServices($fixr_id)
+    {
+
+        $model_fixr = FixrFiitXRef::model()->findByPk($fixr_id);
+        $model_form = false;
+        
+        /**
+         * atrod formas modeli un inicializē
+         * @todo jāpārtaisa, lai ņem no tabulas fret_ref_type
+         */
+        switch ($model_fixr->fixr_fret_id){
+            case 1: //truck doc
+                $model_form = VtdcTruckDoc::model()->find();
+                break;
+            case 2: //truck service
+                break;
+            case 3: //trailer service
+                break;
+            case 4: //trailer doc
+                break;
+            default:
+                break;
+        }
+        
+        
+        echo $this->renderPartial(
+                'popupServices', 
+                array(
+                    'model_fixr' => $model_fixr,
+                    'model_form' => $model_form
+                ),
+                true,
+                true);
     }
 
     public function actionUpdate($fped_id)

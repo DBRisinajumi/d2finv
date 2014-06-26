@@ -23,8 +23,12 @@
             ');
         }
         $this->widget('EFancyboxWidget',array(
-            'selector'=>'a[href*=\'d2finv/fpedPeriodDate/createPopup\']',
+            'selector'=>'a[href*=\'d2finv/fixrFiitXRef/popupServices\']',
             'options'=>array(
+                'height'         => 320,
+                'width'         => 500,
+                'autoDimensions' => false,
+                'live' => false,
             ),
         ));        
 
@@ -93,6 +97,15 @@
                         ),
                         'columns' => array(
                             array(
+                                //decimal(10,2)
+                                'class' => 'editable.EditableColumn',
+                                'name' => 'fixr_amt',
+                                'editable' => array(
+                                    'url' => $this->createUrl('/d2finv/fixrFiitXRef/editableSaver'),
+                                    //'placement' => 'right',
+                                )
+                            ),                            
+                            array(
                                 'class' => 'editable.EditableColumn',
                                 'name' => 'fixr_fret_id',
                                 'editable' => array(
@@ -100,7 +113,17 @@
                                     'url' => $this->createUrl('/d2finv/fixrFiitXRef/editableSaver'),
                                     'source' => CHtml::listData(FretRefType::model()->findAll(array('limit' => 1000)), 'fret_id', 'itemLabel'),                        
                                     //'placement' => 'right',
+                                    'options'  => array(  
+                                        'success'=>'js: function(response, newValue){alert(newValue);if(!response.success) return response.msg;}',
+                                    )    
                                 )
+                            ),
+                            array(
+                                'header' => Yii::t('D2finvModule.model','Description'),
+                                'type' => 'raw',
+                                'value' => 'CHtml::link(Yii::t(\'D2finvModule.model\', \'Empty\'),
+                                                array(\'/d2finv/fixrFiitXRef/popupServices\',\'fixr_id\' =>$data->fixr_id)
+                                            );'
                             ),
                             array(
                                 'class' => 'editable.EditableColumn',
@@ -109,15 +132,6 @@
                                     'type' => 'select',
                                     'url' => $this->createUrl('/d2finv/fixrFiitXRef/editableSaver'),
                                     'source' => CHtml::listData(FrepRefPeriod::model()->findAll(array('limit' => 1000)), 'frep_id', 'itemLabel'),                        
-                                    //'placement' => 'right',
-                                )
-                            ),
-                            array(
-                                //decimal(10,2)
-                                'class' => 'editable.EditableColumn',
-                                'name' => 'fixr_amt',
-                                'editable' => array(
-                                    'url' => $this->createUrl('/d2finv/fixrFiitXRef/editableSaver'),
                                     //'placement' => 'right',
                                 )
                             ),
