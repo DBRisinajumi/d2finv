@@ -115,10 +115,11 @@ class FinvInvoice extends BaseFinvInvoice
                 continue;
             }
             
-            $fvat = FvatVat::model()->findByPk($fiit->fiit_fvat_id);
-            
             $fiit->fiit_amt   = round($fiit->fiit_price * $fiit->fiit_quantity, 2);
-            $fiit->fiit_vat   = round($fiit->fiit_amt * $fvat->fvat_rate / 100, 2);
+            $fiit->fiit_vat = 0;
+            if(!empty($fiit->fiit_fvat_id)){
+                $fiit->fiit_vat   = round($fiit->fiit_amt * $fiit->fiitFvat->fvat_rate / 100, 2);
+            }
             $fiit->fiit_total = $fiit->fiit_amt + $fiit->fiit_vat;
             
             try {
