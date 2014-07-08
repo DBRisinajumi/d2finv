@@ -110,9 +110,8 @@ class FinvInvoice extends BaseFinvInvoice
         foreach ($fiits as $fiit) {
             
             if (empty($fiit->fiit_price) ||
-                empty($fiit->fiit_quantity) ||
-                empty($fiit->fiit_amt) ||
-                empty($fiit->fiit_vat)) {
+                empty($fiit->fiit_quantity) 
+                ) {
                 continue;
             }
             
