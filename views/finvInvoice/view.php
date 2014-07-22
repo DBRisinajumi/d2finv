@@ -6,9 +6,6 @@
         . ': '   
         . $model->getItemLabel()            
 );    
-    
- $this->setWikiTitle(Yii::t('D2finvModule.model', 'Edit Invoice'));    
-    
 //$this->breadcrumbs[Yii::t('D2finvModule.model','Finv Invoices')] = array('admin');
 //$this->breadcrumbs[$model->{$model->tableSchema->primaryKey}] = array('view','id' => $model->{$model->tableSchema->primaryKey});
 //$this->breadcrumbs[] = Yii::t('D2finvModule.crud_static', 'View');
