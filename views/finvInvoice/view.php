@@ -454,7 +454,7 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
         <?php $this->renderPartial('_view-relations_grids',array('modelMain' => $model, 'ajax' => false,)); ?>
     </div>
     <div class="span7">
-        <?php $this->widget('d2FilesWidget',array('model'=>$model)); ?>
+        <?php $this->widget('d2FilesWidget',array('module'=>$this->module->id, 'model'=>$model)); ?>
     </div>
 </div>
 
