@@ -57,12 +57,19 @@ class FinvInvoice extends BaseFinvInvoice
         );
     }
     
+    protected function beforeFind() {
+        $criteria = new CDbCriteria;
+        $criteria->compare('t.finv_sys_ccmp_id', Yii::app()->sysCompany->getActiveCompany());
+        $this->dbCriteria->mergeWith($criteria);
+        parent::beforeFind();
+    }
+    
     public function searchCriteria($criteria = null)
     {
         
         $criteria = parent::searchCriteria($criteria);
         
-        $criteria->compare('t.finv_sys_ccmp_id', Yii::app()->sysCompany->getActiveCompany());
+        //$criteria->compare('t.finv_sys_ccmp_id', Yii::app()->sysCompany->getActiveCompany());
         
         /**
          * filter date to from
