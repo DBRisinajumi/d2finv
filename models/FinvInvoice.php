@@ -69,7 +69,7 @@ class FinvInvoice extends BaseFinvInvoice
         
         $criteria = parent::searchCriteria($criteria);
         
-        //$criteria->compare('t.finv_sys_ccmp_id', Yii::app()->sysCompany->getActiveCompany());
+        $criteria->compare('t.finv_sys_ccmp_id', Yii::app()->sysCompany->getActiveCompany());
         
         /**
          * filter date to from
