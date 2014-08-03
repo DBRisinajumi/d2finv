@@ -48,7 +48,7 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
             $this->widget("bootstrap.widgets.TbButton", array(
                 "label"=>Yii::t("D2finvModule.crud_static","Delete"),
                 "type"=>"danger",
-                "icon"=>"icon-trash icon-white",
+                "icon"=>"icon-cube icon-white",
                 "size"=>"large",
                 "htmlOptions"=> array(
                     "submit"=>array("delete","finv_id"=>$model->finv_id, "returnUrl"=>(Yii::app()->request->getParam("returnUrl"))?Yii::app()->request->getParam("returnUrl"):$this->createUrl("admin")),
@@ -56,7 +56,20 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
                 ),
                 "visible"=> $model->finv_id && Yii::app()->user->checkAccess("InvoiceEdit")
             ));
-            
+            $this->widget(
+                  'bootstrap.widgets.TbButton',
+                  array(
+                      //'buttonType' => 'ajaxButton', 
+                      'label'=> Yii::t('D2finvModule.crud_static', 'Link items to expense positions'),
+                      'type' => 'info', // '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
+                      "icon"=>"fa-cube icon-white",
+                      "size"=>"large",
+                      'url' => array(
+                          '//d2fixr/FixrFiitXRef/viewFinv',
+                          'finv_id' => $model->primaryKey,
+                      ),
+                  )
+              );                    
             ?>
         </div>
     </div>
@@ -65,7 +78,7 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
 
 
 <div class="row">
-    <div class="span5">
+    <div class="span4">
         <!--<h2>
             <?php //echo Yii::t('D2finvModule.crud_static','Data')?>            <small>
                 #<?php //echo $model->finv_id ?>            </small>
@@ -450,10 +463,10 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
     </div>
 
 
-    <div class="span7">
+    <div class="span8">
         <?php $this->renderPartial('_view-relations_grids',array('modelMain' => $model, 'ajax' => false,)); ?>
     </div>
-    <div class="span7">
+    <div class="span8">
         <?php $this->widget('d2FilesWidget',array('module'=>$this->module->id, 'model'=>$model)); ?>
     </div>
 </div>

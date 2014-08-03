@@ -38,19 +38,7 @@ if(!$ajax || $ajax == 'fiit-invoice-item-grid'){
         )
     );        
     echo '&nbsp;';
-    $this->widget(
-        'bootstrap.widgets.TbButton',
-        array(
-            //'buttonType' => 'ajaxButton', 
-            'label'=> Yii::t('D2finvModule.crud_static', 'Link items to expense positions'),
-            'type' => 'info', // '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
-            'size' => 'mini',
-            'url' => array(
-                '//d2fixr/FixrFiitXRef/viewFinv',
-                'finv_id' => $modelMain->primaryKey,
-            ),
-        )
-    );        
+  
     ?>
 </div>
 <?php 

@@ -133,8 +133,7 @@ public function accessRules()
 
     public function actionEditableSaver()
     {
-        Yii::import('TbEditableSaver');
-        $es = new TbEditableSaver('FqntQuantity'); // classname of model to be updated
+        $es = new EditableSaver('FqntQuantity'); // classname of model to be updated
         $es->update();
     }
 
