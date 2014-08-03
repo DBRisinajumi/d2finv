@@ -62,7 +62,6 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
                       //'buttonType' => 'ajaxButton', 
                       'label'=> Yii::t('D2finvModule.crud_static', 'Link items to expense positions'),
                       'type' => 'info', // '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
-                      "icon"=>"fa-cube icon-white",
                       "size"=>"large",
                       'url' => array(
                           '//d2fixr/FixrFiitXRef/viewFinv',

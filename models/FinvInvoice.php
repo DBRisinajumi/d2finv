@@ -59,7 +59,7 @@ class FinvInvoice extends BaseFinvInvoice
     
     protected function beforeFind() {
         $criteria = new CDbCriteria;
-        $criteria->compare('t.finv_sys_ccmp_id', Yii::app()->sysCompany->getActiveCompany());
+        $criteria->compare('finv_sys_ccmp_id', Yii::app()->sysCompany->getActiveCompany());
         $this->dbCriteria->mergeWith($criteria);
         parent::beforeFind();
     }
