@@ -70,4 +70,11 @@ class FiitInvoiceItem extends BaseFiitInvoiceItem
         return parent::save();
     }
 
+    public function afterSave() {
+        
+        
+        
+        parent::afterSave();
+    }
+    
 }
