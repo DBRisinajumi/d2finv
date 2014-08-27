@@ -65,6 +65,12 @@ class FiitInvoiceItem extends BaseFiitInvoiceItem
         
     }
     
+    public function afterDelete() {
+        $finv = FinvInvoice::model()->findByPk($this->fiit_finv_id);
+        $finv->save();
+        parent::afterDelete();
+    }
+    
     public function saveWithoutRecalc()
     {
         return parent::save();

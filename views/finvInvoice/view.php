@@ -117,7 +117,7 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
                         true
                     )
                 ),
-
+                    
                 array(
                     'name' => 'finv_number',
                     'type' => 'raw',
@@ -132,6 +132,23 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
                     )
                 ),
 
+                    
+                array(
+                    'name' => 'finv_type',
+                    'type' => 'raw',    
+                    'value' => $this->widget(
+                        'EditableField', 
+                        array(
+                            'model' => $model,
+                            'type' => 'select',
+                            'url' => $this->createUrl('/d2finv/finvInvoice/editableSaver'),
+                            'source' => $model->getEnumFieldLabels('finv_type'),
+                            'attribute' => 'finv_type',
+                            //'placement' => 'right',                                
+                        ), 
+                        true
+                    )                   
+                ),                    
                 /*array(
                     'name' => 'finv_sys_ccmp_id',
                     'type' => 'raw',    
@@ -441,22 +458,6 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
                     )
                 ),
 
-                array(
-                    'name' => 'finv_type',
-                    'type' => 'raw',    
-                    'value' => $this->widget(
-                        'EditableField', 
-                        array(
-                            'model' => $model,
-                            'type' => 'select',
-                            'url' => $this->createUrl('/d2finv/finvInvoice/editableSaver'),
-                            'source' => $model->getEnumFieldLabels('finv_type'),
-                            'attribute' => 'finv_type',
-                            //'placement' => 'right',                                
-                        ), 
-                        true
-                    )                   
-                ),
            ),
         )); ?>
     </div>
