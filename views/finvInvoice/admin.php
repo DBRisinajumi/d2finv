@@ -72,15 +72,6 @@ $this->widget('TbGridView',
                 )
             ),*/
             array(
-                //varchar(10)
-                'class' => 'editable.EditableColumn',
-                'name' => 'finv_series_number',
-                'editable' => array(
-                    'url' => $this->createUrl('/d2finv/finvInvoice/editableSaver'),
-                    'placement' => 'right',
-                )
-            ),
-            array(
                 //varchar(20)
                 'class' => 'editable.EditableColumn',
                 'name' => 'finv_number',

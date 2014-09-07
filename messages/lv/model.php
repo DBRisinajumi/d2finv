@@ -170,7 +170,6 @@ return array (
   'tooltip.finv_ref' => 'Reference',
   'tooltip.finv_ref_id' => 'References Id',
   'tooltip.finv_reg_date' => 'Reģ. datums',
-  'tooltip.finv_series_number' => 'Sērijas numurs',
   'tooltip.finv_stst_id' => 'Statuss',
   'tooltip.finv_total' => 'Kopsumma',
   'tooltip.finv_type' => 'Veids',

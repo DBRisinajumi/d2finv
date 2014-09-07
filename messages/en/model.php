@@ -170,7 +170,6 @@ return array (
   'tooltip.finv_ref' => 'Ref',
   'tooltip.finv_ref_id' => 'Ref Id',
   'tooltip.finv_reg_date' => 'Reg date',
-  'tooltip.finv_series_number' => 'Series number',
   'tooltip.finv_stst_id' => 'State',
   'tooltip.finv_total' => 'Total',
   'tooltip.finv_type' => 'Type',

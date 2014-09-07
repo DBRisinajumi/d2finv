@@ -41,22 +41,6 @@
                     <?php  ?>
                     <div class="control-group">
                         <div class='control-label'>
-                            <?php echo $form->labelEx($model, 'finv_series_number') ?>
-                        </div>
-                        <div class='controls'>
-                            <span class="tooltip-wrapper" data-toggle='tooltip' data-placement="right"
-                                 title='<?php echo (($t = Yii::t('D2finvModule.model', 'tooltip.finv_series_number')) != 'tooltip.finv_series_number')?$t:'' ?>'>
-                                <?php
-                            echo $form->textField($model, 'finv_series_number', array('size' => 10, 'maxlength' => 10));
-                            echo $form->error($model,'finv_series_number')
-                            ?>                            </span>
-                        </div>
-                    </div>
-                    <?php  ?>
-                                    
-                    <?php  ?>
-                    <div class="control-group">
-                        <div class='control-label'>
                             <?php echo $form->labelEx($model, 'finv_number') ?>
                         </div>
                         <div class='controls'>

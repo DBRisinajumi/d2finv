@@ -183,6 +183,6 @@ if (!$ajax || $ajax == 'fiit-invoice-item-grid') {
     ?>
 
     <?php
-    Yii::endProfile('FiitInvoiceItem.view.grid');
+    Yii::endProfile('fiit_finv_id.view.grid');
 }
 ?>

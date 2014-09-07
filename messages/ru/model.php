@@ -142,7 +142,6 @@ return array (
   'tooltip.finv_ref' => '',
   'tooltip.finv_ref_id' => '',
   'tooltip.finv_reg_date' => '',
-  'tooltip.finv_series_number' => '',
   'tooltip.finv_stst_id' => '',
   'tooltip.finv_sys_ccmp_id' => '',
   'tooltip.finv_total' => '',
