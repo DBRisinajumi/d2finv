@@ -39,11 +39,18 @@ if (!$ajax || $ajax == 'fiit-invoice-item-grid') {
         ?>
     </div>
     <?php
+    
+    //if no items add emty record
     if (empty($modelMain->fiitInvoiceItems)) {
         $model = new FiitInvoiceItem;
         $model->fiit_finv_id = $modelMain->primaryKey;
         $model->save();
+        
+        //only for items total
+        $finv = $model->fiitFinv;
         unset($model);
+    }else{
+        $finv = $modelMain;
     }
 
     $model = new FiitInvoiceItem();
@@ -121,21 +128,21 @@ if (!$ajax || $ajax == 'fiit-invoice-item-grid') {
             array(
                 'name' => 'fiit_amt',
                 'htmlOptions' => array('class' => 'numeric-column'),
-                'footer' => $modelMain->finv_amt,
+                'footer' => $finv->finv_amt,
                 'footerHtmlOptions' => array('class' => 'numeric-column total-row'),
                 
             ),
             array(
                 'name' => 'fiit_vat',
                 'htmlOptions' => array('class' => 'numeric-column'),                
-                'footer' => $modelMain->finv_vat,
+                'footer' => $finv->finv_vat,
                 'footerHtmlOptions' => array('class' => 'numeric-column total-row'),                
             ),
             array(
                 //decimal(10,2)
                 'name' => 'fiit_total',
                 'htmlOptions' => array('class' => 'numeric-column'),
-                'footer' => $modelMain->finv_total,
+                'footer' => $finv->finv_total,
                 'footerHtmlOptions' => array('class' => 'numeric-column total-row'),                
             ),
 //                array(

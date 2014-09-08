@@ -461,38 +461,6 @@
                     <?php  ?>
                     <div class="control-group">
                         <div class='control-label'>
-                            <?php echo $form->labelEx($model, 'finv_ref') ?>
-                        </div>
-                        <div class='controls'>
-                            <span class="tooltip-wrapper" data-toggle='tooltip' data-placement="right"
-                                 title='<?php echo (($t = Yii::t('D2finvModule.model', 'tooltip.finv_ref')) != 'tooltip.finv_ref')?$t:'' ?>'>
-                                <?php
-                            echo CHtml::activeDropDownList($model, 'finv_ref', $model->getEnumFieldLabels('finv_ref'));
-                            echo $form->error($model,'finv_ref')
-                            ?>                            </span>
-                        </div>
-                    </div>
-                    <?php  ?>
-                                    
-                    <?php  ?>
-                    <div class="control-group">
-                        <div class='control-label'>
-                            <?php echo $form->labelEx($model, 'finv_ref_id') ?>
-                        </div>
-                        <div class='controls'>
-                            <span class="tooltip-wrapper" data-toggle='tooltip' data-placement="right"
-                                 title='<?php echo (($t = Yii::t('D2finvModule.model', 'tooltip.finv_ref_id')) != 'tooltip.finv_ref_id')?$t:'' ?>'>
-                                <?php
-                            echo $form->textField($model, 'finv_ref_id', array('size' => 10, 'maxlength' => 10));
-                            echo $form->error($model,'finv_ref_id')
-                            ?>                            </span>
-                        </div>
-                    </div>
-                    <?php  ?>
-                                    
-                    <?php  ?>
-                    <div class="control-group">
-                        <div class='control-label'>
                             <?php echo $form->labelEx($model, 'finv_type') ?>
                         </div>
                         <div class='controls'>
