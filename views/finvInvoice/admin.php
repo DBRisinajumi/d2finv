@@ -20,22 +20,39 @@ $this->setPageTitle(
 <div class="clearfix">
     <div class="btn-toolbar pull-left">
         <div class="btn-group">
+            <h1>
+                <i class="icon-file-text-alt"></i>
+                <?php echo Yii::t('D2finvModule.model', 'Finv Invoices');?></h1>
+        </div>        
+        <div class="btn-group">
         <?php 
         $this->widget('bootstrap.widgets.TbButton', array(
-             'label'=>Yii::t('D2finvModule.crud_static','Create'),
+             'label'=>Yii::t('D2finvModule.crud_static','Incoming'),
              'icon'=>'icon-plus',
              'size'=>'large',
              'type'=>'success',
-             'url'=>array('create'),
-             'visible'=>(Yii::app()->user->checkAccess('D2finv.FinvInvoice.*') || Yii::app()->user->checkAccess('D2finv.FinvInvoice.Create'))
+             'url'=>array('create','finv_type'=>FinvInvoice::FINV_TYPE_IN),
+             'visible'=>(Yii::app()->user->checkAccess('D2finv.FinvInvoice.*') || Yii::app()->user->checkAccess('D2finv.FinvInvoice.Create')),
+             "htmlOptions"=>array(
+                            "data-toggle"=>"tooltip",
+                            "title"=>Yii::t("TrucksModule.crud","Create Incoming Invoice"),
+                ),            
+        ));  
+        $this->widget('bootstrap.widgets.TbButton', array(
+             'label'=>Yii::t('D2finvModule.crud_static','Outgoing'),
+             'icon'=>'icon-plus',
+             'size'=>'large',
+             'type'=>'success',
+             'url'=>array('create','finv_type'=>FinvInvoice::FINV_TYPE_OUT),
+             'visible'=>(Yii::app()->user->checkAccess('D2finv.FinvInvoice.*') || Yii::app()->user->checkAccess('D2finv.FinvInvoice.Create')),
+             "htmlOptions"=>array(
+                            "data-toggle"=>"tooltip",
+                            "title"=>Yii::t("TrucksModule.crud","Create Outgoing Invoice"),
+                ),                        
         ));  
         ?>
 </div>
-        <div class="btn-group">
-            <h1>
-                <i class=""></i>
-                <?php echo Yii::t('D2finvModule.model', 'Finv Invoices');?>            </h1>
-        </div>
+
     </div>
 </div>
 

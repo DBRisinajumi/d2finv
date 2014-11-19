@@ -92,7 +92,7 @@ public function accessRules()
         }
     }
 
-    public function actionCreate()
+    public function actionCreate($finv_type)
     {
         $model = new FinvInvoice;
         $model->scenario = $this->scenario;
@@ -115,6 +115,8 @@ public function accessRules()
             }
         } elseif (isset($_GET['FinvInvoice'])) {
             $model->attributes = $_GET['FinvInvoice'];
+        } else{
+            $model->finv_type = $finv_type;
         }
 
         $this->render('create', array('model' => $model));

@@ -6,11 +6,8 @@
         . ': '   
         . $model->getItemLabel()            
 );    
-//$this->breadcrumbs[Yii::t('D2finvModule.model','Finv Invoices')] = array('admin');
-//$this->breadcrumbs[$model->{$model->tableSchema->primaryKey}] = array('view','id' => $model->{$model->tableSchema->primaryKey});
-//$this->breadcrumbs[] = Yii::t('D2finvModule.crud_static', 'View');
+
 $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
-    #"label"=>Yii::t("D2finvModule.crud_static","Cancel"),
     "icon"=>"chevron-left",
     "size"=>"large",
     "url"=>(isset($_GET["returnUrl"]))?$_GET["returnUrl"]:array("{$this->id}/admin"),
@@ -18,19 +15,20 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
     "htmlOptions"=>array(
                     "class"=>"search-button",
                     "data-toggle"=>"tooltip",
-                    "title"=>Yii::t("D2finvModule.crud_static","Back"),
+                    "title"=>Yii::t("D2finvModule.crud_static","Back to list"),
                 )
  ),true);
     
 ?>
-<?php //$this->widget("TbBreadcrumbs", array("links"=>$this->breadcrumbs)) ?>
+
 <div class="clearfix">
     <div class="btn-toolbar pull-left">
         <div class="btn-group"><?php echo $cancel_buton;?></div>
         <div class="btn-group">
             <h1>
-                <i class=""></i>
-                <?php echo Yii::t('D2finvModule.model','Finv Invoice');?>                <small><?php echo$model->itemLabel?></small>
+                <i class="icon-file-text-alt"></i>
+                <?php echo Yii::t('D2finvModule.model','Finv Invoice');?>                
+                <small><?php echo$model->itemLabel?></small>
             </h1>
         </div>
         <div class="btn-group">
@@ -42,7 +40,11 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
                 "icon"=>"icon-copy",
                 "size"=>"large",
                 'url'=> Yii::app()->controller->createUrl("copy", array("finv_id" => $model->finv_id)),
-                "visible"=> $model->finv_id && Yii::app()->user->checkAccess("InvoiceEdit")
+                "visible"=> $model->finv_id && Yii::app()->user->checkAccess("InvoiceEdit"),
+                "htmlOptions"=>array(
+                                "data-toggle"=>"tooltip",
+                                "title"=>Yii::t("D2finvModule.crud_static","Create copy of this invoice"),
+                            )                
             ));
             
             $this->widget("bootstrap.widgets.TbButton", array(
@@ -56,19 +58,26 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
                 ),
                 "visible"=> $model->finv_id && Yii::app()->user->checkAccess("InvoiceEdit")
             ));
-            $this->widget(
-                  'bootstrap.widgets.TbButton',
-                  array(
-                      //'buttonType' => 'ajaxButton', 
-                      'label'=> Yii::t('D2finvModule.crud_static', 'Link items to expense positions'),
-                      'type' => 'info', // '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
-                      "size"=>"large",
-                      'url' => array(
-                          '//d2fixr/FixrFiitXRef/viewFinv',
-                          'finv_id' => $model->primaryKey,
-                      ),
-                  )
-              );                    
+            
+            if (Yii::app()->hasModule('d2fixr') && Yii::app()->user->checkAccess("D2fixr.FixrFiitXRef.View")) {
+                $this->widget(
+                      'bootstrap.widgets.TbButton',
+                      array(
+                          //'buttonType' => 'ajaxButton', 
+                          'label'=> Yii::t('D2finvModule.crud_static', 'Expense positions'),
+                          'type' => 'info', // '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
+                          "size"=>"large",
+                          'url' => array(
+                              '//d2fixr/FixrFiitXRef/viewFinv',
+                              'finv_id' => $model->primaryKey,
+                          ),
+                        "htmlOptions"=>array(
+                                        "data-toggle"=>"tooltip",
+                                        "title"=>Yii::t("D2finvModule.crud_static","Link items to expense positions"),
+                                    )                                      
+                      )
+                  );      
+            }
             ?>
         </div>
     </div>
@@ -85,24 +94,10 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
 
         <?php
         $this->widget(
-            'TbDetailView',
+            'TbAceDetailView',
             array(
                 'data' => $model,
                 'attributes' => array(
-                
-                /*array(
-                    'name' => 'finv_id',
-                    'type' => 'raw',
-                    'value' => $this->widget(
-                        'EditableField',
-                        array(
-                            'model' => $model,
-                            'attribute' => 'finv_id',
-                            'url' => $this->createUrl('/d2finv/finvInvoice/editableSaver'),
-                        ),
-                        true
-                    )
-                ),*/
 
                 array(
                     'name' => 'finv_number',
@@ -135,22 +130,6 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
                         true
                     )                   
                 ),                    
-                /*array(
-                    'name' => 'finv_sys_ccmp_id',
-                    'type' => 'raw',    
-                    'value' => $this->widget(
-                        'EditableField', 
-                        array(
-                            'model' => $model,
-                            'type' => 'select',
-                            'url' => $this->createUrl('/d2finv/finvInvoice/editableSaver'),
-                            'source' => CHtml::listData(CcmpCompany::model()->findAll(array('limit' => 1000)), 'ccmp_id', 'itemLabel'),                        
-                            'attribute' => 'finv_sys_ccmp_id',
-                            //'placement' => 'right',                                
-                        ), 
-                        true
-                    )                   
-                ),*/
 
                 array(
                     'name' => 'finv_ccmp_id',
@@ -166,24 +145,12 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
                             //'placement' => 'right',                                
                         ), 
                         true
-                    )                   
+                    ),
+                    'value_id' => $model->finv_ccmp_id,
+                    'external_link' => array('/d2company/ccmpCompany/view','ccmp_id'=>$model->finv_ccmp_id),
+                    'external_title' => Yii::t("D2finvModule.model",'Show company data'),
+                    
                 ),
-
-                /*array(
-                    'name' => 'finv_reg_date',
-                    'type' => 'raw',    
-                    'value' => $this->widget(
-                        'EditableField', 
-                        array(
-                            'model' => $model,
-                            'type' => 'date',
-                            'url' => $this->createUrl('/d2finv/finvInvoice/editableSaver'),
-                            'attribute' => 'finv_reg_date',
-                            //'placement' => 'right',                                
-                        ), 
-                        true
-                    )                   
-                ),*/
                 
                 array(
                     'name' => 'finv_date',
@@ -264,121 +231,6 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
                     )                   
                 ),
 
-                /*array(
-                    'name' => 'finv_amt',
-                    'type' => 'raw',
-                    'value' => $this->widget(
-                        'EditableField',
-                        array(
-                            'model' => $model,
-                            'attribute' => 'finv_amt',
-                            'url' => $this->createUrl('/d2finv/finvInvoice/editableSaver'),
-                        ),
-                        true
-                    )
-                ),
-
-                array(
-                    'name' => 'finv_vat',
-                    'type' => 'raw',
-                    'value' => $this->widget(
-                        'EditableField',
-                        array(
-                            'model' => $model,
-                            'attribute' => 'finv_vat',
-                            'url' => $this->createUrl('/d2finv/finvInvoice/editableSaver'),
-                        ),
-                        true
-                    )
-                ),
-
-                array(
-                    'name' => 'finv_total',
-                    'type' => 'raw',
-                    'value' => $this->widget(
-                        'EditableField',
-                        array(
-                            'model' => $model,
-                            'attribute' => 'finv_total',
-                            'url' => $this->createUrl('/d2finv/finvInvoice/editableSaver'),
-                        ),
-                        true
-                    )
-                ),
-                
-                array(
-                    'name' => 'finv_basic_fcrn_id',
-                    'type' => 'raw',    
-                    'value' => $this->widget(
-                        'EditableField', 
-                        array(
-                            'model' => $model,
-                            'type' => 'select',
-                            'url' => $this->createUrl('/d2finv/finvInvoice/editableSaver'),
-                            'source' => CHtml::listData(FcrnCurrency::model()->findAll(array('limit' => 1000)), 'fcrn_id', 'itemLabel'),                        
-                            'attribute' => 'finv_basic_fcrn_id',
-                            //'placement' => 'right',                                
-                        ), 
-                        true
-                    )                   
-                ),
-
-                array(
-                    'name' => 'finv_basic_amt',
-                    'type' => 'raw',
-                    'value' => $this->widget(
-                        'EditableField',
-                        array(
-                            'model' => $model,
-                            'attribute' => 'finv_basic_amt',
-                            'url' => $this->createUrl('/d2finv/finvInvoice/editableSaver'),
-                        ),
-                        true
-                    )
-                ),
-
-                array(
-                    'name' => 'finv_basic_vat',
-                    'type' => 'raw',
-                    'value' => $this->widget(
-                        'EditableField',
-                        array(
-                            'model' => $model,
-                            'attribute' => 'finv_basic_vat',
-                            'url' => $this->createUrl('/d2finv/finvInvoice/editableSaver'),
-                        ),
-                        true
-                    )
-                ),
-
-                array(
-                    'name' => 'finv_basic_total',
-                    'type' => 'raw',
-                    'value' => $this->widget(
-                        'EditableField',
-                        array(
-                            'model' => $model,
-                            'attribute' => 'finv_basic_total',
-                            'url' => $this->createUrl('/d2finv/finvInvoice/editableSaver'),
-                        ),
-                        true
-                    )
-                ),
-
-                array(
-                    'name' => 'finv_basic_payment_before',
-                    'type' => 'raw',
-                    'value' => $this->widget(
-                        'EditableField',
-                        array(
-                            'model' => $model,
-                            'attribute' => 'finv_basic_payment_before',
-                            'url' => $this->createUrl('/d2finv/finvInvoice/editableSaver'),
-                        ),
-                        true
-                    )
-                ),*/
-
                 array(
                     'name' => 'finv_stst_id',
                     'type' => 'raw',    
@@ -413,37 +265,6 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
                     )                   
                 ),
 
-//                array(
-//                    'name' => 'finv_ref',
-//                    'type' => 'raw',    
-//                    'value' => $this->widget(
-//                        'EditableField', 
-//                        array(
-//                            'model' => $model,
-//                            'type' => 'select',
-//                            'url' => $this->createUrl('/d2finv/finvInvoice/editableSaver'),
-//                            'source' => $model->getEnumFieldLabels('finv_ref'),
-//                            'attribute' => 'finv_ref',
-//                            //'placement' => 'right',                                
-//                        ), 
-//                        true
-//                    )                   
-//                ),
-//
-//                array(
-//                    'name' => 'finv_ref_id',
-//                    'type' => 'raw',
-//                    'value' => $this->widget(
-//                        'EditableField',
-//                        array(
-//                            'model' => $model,
-//                            'attribute' => 'finv_ref_id',
-//                            'url' => $this->createUrl('/d2finv/finvInvoice/editableSaver'),
-//                        ),
-//                        true
-//                    )
-//                ),
-
            ),
         )); ?>
     </div>
@@ -456,7 +277,7 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
         <?php $this->widget('d2FilesWidget',array('module'=>$this->module->id, 'model'=>$model)); ?>
     </div>
 </div>
-
+<div class="space"></div>   
 <?php 
 
 $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
@@ -468,7 +289,8 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
     "htmlOptions"=>array(
                     "class"=>"search-button",
                     "data-toggle"=>"tooltip",
-                    "title"=>Yii::t("D2finvModule.crud_static","Back"),
+                    "title"=>Yii::t("D2finvModule.crud_static","Back to list"),
                 )
  ),true);
+
 echo $cancel_buton;

@@ -17,13 +17,10 @@ class FinvInvoice extends BaseFinvInvoice
 
     public function init()
     {
-        // Default values
-        
-        //special for gii validate on component 'sysCompany'
-        $components = Yii::app()->getComponents();
-        if(in_array('sysCompany',$components)){
+        // form Default values
+        //if (Yii::app()->existComponent('sysCompany')) {
             $this->finv_fcrn_id     = Yii::app()->sysCompany->getAttribute('base_fcrn_id');
-        }
+        //}
         $this->finv_date        = date('Y-m-d');
         $this->finv_budget_date = date('Y-m-d');
         
@@ -52,7 +49,8 @@ class FinvInvoice extends BaseFinvInvoice
                 array('finv_sys_ccmp_id, finv_basic_fcrn_id', 'required', 'message'=>Yii::t('D2finvModule.model', 'System configuration error \'{attribute}\' is not set.')),
                 array('finv_sys_ccmp_id', 'default', 'value'=>Yii::app()->sysCompany->getActiveCompany()),
                 array('finv_basic_fcrn_id', 'default', 'value'=>Yii::app()->sysCompany->getAttribute('base_fcrn_id')),
-                array('finv_reg_date', 'default', 'value'=>date('Y-m-d')),
+                array('finv_reg_date', 'default', 'value'=>new CDbExpression('NOW()')),
+                array('finv_stst_id', 'default', 'value'=>1), // Status NEW
             )
         );
     }
@@ -221,6 +219,16 @@ class FinvInvoice extends BaseFinvInvoice
         
         return parent::beforeDelete();
         
+    }
+    
+    public function beforeSave()
+    {
+        if(!$this->isNewRecord && !FinvInvoice::model()->findByPk($this->primaryKey)){
+            return false;
+        }
+        
+        return parent::beforeSave();
+
     }
 
 }

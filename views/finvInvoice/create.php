@@ -1,14 +1,12 @@
 <?php
-$this->setPageTitle(
-    Yii::t('D2finvModule.model', 'Finv Invoice')
-    . ' - '
-    . Yii::t('D2finvModule.crud_static', 'Create')
-);
+if($model->finv_type == FinvInvoice::FINV_TYPE_OUT){
+    $title = Yii::t('D2finvModule.crud_static', 'Create Incoming Invoice');
+}else{
+    $title = Yii::t('D2finvModule.crud_static', 'Create Outgoing Invoice');
+}
+$this->setPageTitle($title);
 
-//$this->breadcrumbs[Yii::t('D2finvModule.model', 'Finv Invoices')] = array('admin');
-//$this->breadcrumbs[] = Yii::t('D2finvModule.crud_static', 'Create');
 $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
-    #"label"=>Yii::t("D2finvModule.crud_static","Cancel"),
     "icon"=>"chevron-left",
     "size"=>"large",
     "url"=>(isset($_GET["returnUrl"]))?$_GET["returnUrl"]:array("{$this->id}/admin"),
@@ -21,14 +19,15 @@ $cancel_buton = $this->widget("bootstrap.widgets.TbButton", array(
  ),true);
     
 ?>
-<?php //$this->widget("TbBreadcrumbs", array("links" => $this->breadcrumbs)) ?>
+
 <div class="clearfix">
     <div class="btn-toolbar pull-left">
         <div class="btn-group"><?php echo $cancel_buton;?></div>
         <div class="btn-group">
             <h1>
-                <i class=""></i>
-                <?php echo Yii::t('D2finvModule.model','Create Finv Invoice');?>            </h1>
+                <i class="icon-file-text-alt"></i>
+                <?php echo $title;?>            
+            </h1>
         </div>
     </div>
 </div>
